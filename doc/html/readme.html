@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Routino : Software</title>
+
+<!--
+ Routino documentation - readme
+
+ Part of the Routino routing software.
+
+ This file Copyright 2008-2013 Andrew M. Bishop
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see http://www.gnu.org/licenses/.
+-->
+
+<link href="style.css" type="text/css" rel="stylesheet">
+</HEAD>
+
+<BODY>
+
+<!-- Header Start -->
+
+<div class="header" align="center">
+
+<h1>Routino : Software</h1>
+
+<hr>
+</div>
+
+<!-- Header End -->
+
+<!-- Content Start -->
+
+<div class="content">
+
+<h2><a name="H_1_1" title="Introduction"></a>Routino Introduction</h2>
+
+Routino is an application for finding a route between two points using the
+dataset of topographical information collected by
+<a class="ext" title="OpenStreetMap" href="http://www.openstreetmap.org/">http://www.OpenStreetMap.org</a>.
+
+<p>
+
+Starting from the raw OpenStreetMap data (in the form of the '.osm' XML files
+available on the internet) a custom database is generated that contains the
+information useful for routing.  With this database and two points specified by
+latitude and longitude an optimum route (either shortest or quickest) is
+determined.  The route is calculated for OpenStreetMap highways (roads, paths
+etc) using one of the common forms of transport defined in OpenStreetMap (foot,
+bicycle, horse, motorcar, motorcycle etc).
+
+<p>
+
+When processing the OpenStreetMap data the types of highways are recorded and
+these set default limits on the types of traffic allowed.  More specific
+information about permissions for different types of transport are also recorded
+as are maximum speed limits.  Further restrictions like one-way streets, weight,
+height, width and length limits are also included where specified. Additionally
+a set of properties of each highway are also recorded.  The processing of the
+input file is controlled by a configuration file which determines the
+information that is used.
+
+<p>
+
+When calculating a route the type of transport to be used is taken into account
+to ensure that the known restrictions are followed.  Each of the different
+highway types can further be allowed or disallowed depending on preferences.
+For each type of highway a default speed limit is defined (although the actual
+speed used will be the lowest of the default and any specified in the original
+data).  To make use of the information about restrictions the weight, height,
+width and length of the transport can also be specified.  Further preferences
+about road properties (e.g. paved or not) can also be selected.  The simplest
+type of turn restrictions (those formed from an initial way, a node and a second
+way) are also obeyed.
+
+<p>
+
+The result of calculating the route can be presented in several different ways.
+An HTML file can be produced that contains a description of the route to take
+with instructions for each of the important junctions.  The contents of the file
+are created based on a set of translations specified in a configuration file.
+The route is also available in a
+<a class="ext" title="GPX format" href="http://www.topografix.com/gpx.asp">GPX (GPS eXchange) XML format</a>.
+format file containing either every point and highway segment (a track file) or
+just a waypoint and translated instructions for the important junctions (a route
+file).
+Additionally there are two plain text files that contain all data points or just
+the important ones (intended for debugging and further processing).
+
+<p>
+
+One of the design aims of Routino was to make the software are flexible as
+possible in selecting routing preferences but also have a sensible set of
+default values.  Another design aim was that finding the optimum route should be
+very fast and most of the speed increases come from the carefully chosen and
+optimised data format.
+
+
+<h2><a name="H_1_2"></a>Disclaimer</h2>
+
+The route that is calculated by this software is only as good as the input data.
+
+<p>
+
+Routino comes with ABSOLUTELY NO WARRANTY for the software itself or the route
+that is calculated by it.
+
+
+<h2><a name="H_1_3"></a>Demonstration</h2>
+
+A live demonstration of the router for the UK is available on the internet:
+<br>
+<a title="Routino demo" href="http://www.routino.org/uk/">http://www.routino.org/uk/</a>
+
+<p>
+
+The source code download available below also includes a set of files that can
+be used to create your own interactive map.
+
+<p>
+
+The interactive map is made possible by use of the OpenLayers Javascript
+library from <a class="ext" href="http://www.openlayers.org" title="OpenLayers">http://www.openlayers.org/</a>.
+
+
+<h2><a name="H_1_4"></a>Documentation</h2>
+
+A full set of
+<a href="index.html" title="Documentation">documentation</a>
+is available that describes how to install and use the programs as well as
+what should go in the configuration files and how it works.
+
+
+<h2><a name="H_1_5"></a>Status</h2>
+
+Version 1.0 of Routino was released on 8th April 2009.
+<br>
+Version 1.1 of Routino was released on 13th June 2009.
+<br>
+Version 1.2 of Routino was released on 21st October 2009.
+<br>
+Version 1.3 of Routino was released on 21st January 2010.
+<br>
+Version 1.4 of Routino was released on 31st May 2010.
+<br>
+Version 1.4.1 of Routino was released on 10th July 2010.
+<br>
+Version 1.5 of Routino was released on 30th October 2010.
+<br>
+Version 1.5.1 of Routino was released on 13th November 2010.
+<br>
+Version 2.0 of Routino was released on 30th May 2011.
+<br>
+Version 2.0.1 of Routino was released on 7th June 2011.
+<br>
+Version 2.0.2 of Routino was released on 26th June 2011.
+<br>
+Version 2.0.3 of Routino was released on 4th August 2011.
+<br>
+Version 2.1 of Routino was released on 3rd October 2011.
+<br>
+Version 2.1.1 of Routino was released on 23rd October 2011.
+<br>
+Version 2.1.2 of Routino was released on 12th November 2011.
+<br>
+Version 2.2 of Routino was released on 3rd March 2012.
+<br>
+Version 2.3 of Routino was released on 21st July 2012.
+<br>
+Version 2.3.1 of Routino was released on 11th August 2012.
+<br>
+Version 2.3.2 of Routino was released on 6th October 2012.
+<br>
+Version 2.4 of Routino was released on 8th December 2012.
+<br>
+Version 2.4.1 of Routino was released on 17th December 2012.
+<br>
+Version 2.5 of Routino was released on 9th February 2013.
+<br>
+Version 2.5.1 of Routino was released on 20th April 2013.
+
+<p>
+
+The full version history is available in the NEWS.txt file.
+
+
+<h3><a name="H_1_5_1" title="Changes"></a>Changes in Versions 2.5.1 / 2.5</h3>
+
+In version 2.5.1 - mostly bug fixes.
+
+<dl>
+  <dt>Bug fixes:
+  <dd>Stop contradictory log error messages about 'access=foot' etc.
+  <br>Move the HTML charset definition to within the first 1024 bytes of file.
+  <br>Don't prune short segments in some cases that would change routing.
+  <br>Fix bug with pruning straight highways around loops.
+  <br>Fix some bugs with installation documents and scripts.
+  <br>Fix Javascript to work with OpenLayers v2.11 again.
+  <br>Fix XML character quoting for special characters in 7-bit ASCII range.
+  <br>Fix bug with parsing XML containing UTF-8 characters four bytes long.
+  <br>Fix two bugs for simple routes with the option of not passing a super-node.
+
+  <dt>planetsplitter:
+  <dd>Improve the pruning of straight highways (detect larger straight sections).
+
+  <dt>Configuration Files:
+  <dd>Accept some more tag values for OSM file parsing.
+  <br>Handle alternate forms of mini roundabouts (junction=roundabout).
+</dl>
+
+In version 2.5 - mostly new features.
+
+<dl>
+  <dt>General:
+  <dd>Replace 'motorbike' with 'motorcycle' everywhere.
+
+  <dt>planetsplitter/tagmodifier:
+  <dd>Major changes to source file reading:
+  <br>Faster XML parser.
+  <br>Reads PBF files natively (not for changes, not tagmodifier).
+  <br>Reads o5m/o5c files natively (not tagmodifier).
+  <br>Reads bzip2 or gzip compressed files natively (if compiled for them).
+  <br>Data can no longer be read from standard input.
+
+  <dt>planetsplitter:
+  <dd>Report errors with self-intersecting ways, clarify some other error messages.
+
+  <dt>Configuration Files:
+  <dd>Tagging configuration can now use an &lt;ifnot&gt; rule.
+  <br>The tagging configuration &lt;if&gt; and &lt;ifnot&gt; rules can be nested.
+  <br>Change the way that the multilane property is derived from the lanes tag.
+  <br>Accept some more tag values for OSM file parsing.
+  <br>German translation now supports roundabouts.
+
+  <dt>Documentation:
+  <dd>Describe numerical limits (OSM identifiers and maximum database size).
+
+  <dt>Web pages:
+  <dd>Allow different data and tile attributions for each map source.
+  <br>Include MapQuest as an optional tile source.
+
+  <dt>Web pages (visualiser):
+  <dd>Allow plotting segments of highways that have a particular property.
+</dl>
+
+<p>
+<b>Note:</b> Starting with this version the planetsplitter and tagmodifier programs will no longer read data from standard input.
+
+<p>
+<b>Note:</b> Existing mapprops.js files need to be updated for this version.
+
+<p>
+<b>Note:</b> This version is compatible with databases from version 2.4 / 2.4.1.
+
+
+<h3><a name="H_1_5_2"></a>License</h3>
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the
+<a class="ext" title="Affero GPLv3" href="http://www.fsf.org/licensing/licenses/agpl-3.0.html">GNU Affero General Public License</a>
+as published by the Free Software Foundation; either version 3 of the License,
+or (at your option) any later version.
+
+<p>
+
+It is important to note that for this program I have decided to use the
+<em>Affero GPLv3</em> instead of just using the GPL.  This license adds
+additional requirements to anybody who provides a networked service using this
+software.
+
+
+<h3><a name="H_1_5_3"></a>Copyright</h3>
+
+Routino is copyright Andrew M. Bishop 2008-2013.
+
+
+<h2><a name="H_1_6"></a>Download</h2>
+
+The <a title="Download directory" href="http://www.routino.org/download/">download directory</a>
+contains the latest version of the source code.
+
+
+</div>
+
+<!-- Content End -->
+
+<!-- Footer Start -->
+
+<div class="footer" align="center">
+<hr>
+
+<address>
+&copy; Andrew M. Bishop - <a href="http://www.routino.org/">http://www.routino.org/</a>
+</address>
+
+</div>
+
+<!-- Footer End -->
+
+</BODY>
+
+</HTML>

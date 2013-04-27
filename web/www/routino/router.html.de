@@ -1,0 +1,490 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="openstreetmap routing route planer">
+
+<title>Routino : Routen Planer f&uuml;r OpenStreetMap Daten</title>
+
+<!--
+ Routino router web page.
+
+ Part of the Routino routing software.
+
+ This file Copyright 2008-2013 Andrew M. Bishop
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see http://www.gnu.org/licenses/.
+
+ Deutsche UEbersetzung von Andreas Matthus
+-->
+
+<!-- OpenLayers Javascript library -->
+<script src="../openlayers/OpenLayers.js" type="text/javascript"></script>
+
+<!-- Page elements -->
+<script src="page-elements.js" type="text/javascript"></script>
+<link href="page-elements.css" type="text/css" rel="stylesheet">
+
+<!-- Router and visualiser shared features -->
+<link href="maplayout.css" type="text/css" rel="stylesheet">
+<!--[if IE 6]>
+  <link href="maplayout-ie6-bugfixes.css" type="text/css" rel="stylesheet">
+<![endif]-->
+<!--[if IE 7]>
+  <link href="maplayout-ie7-bugfixes.css" type="text/css" rel="stylesheet">
+<![endif]-->
+
+<!-- Router specific features -->
+<script src="profiles.js" type="text/javascript"></script>
+<script src="mapprops.js" type="text/javascript"></script>
+<script src="router.js" type="text/javascript"></script>
+<link href="router.css" type="text/css" rel="stylesheet">
+</HEAD>
+
+<BODY onload="html_init();map_init();form_init();">
+
+<!-- Left hand side of window - data panel -->
+
+<div class="left_panel">
+
+  <div class="tab_box">
+    <span id="tab_options" onclick="tab_select('options');" class="tab_selected"   title="Setze Routing-Optionen">Optionen</span>
+    <span id="tab_results" onclick="tab_select('results');" class="tab_unselected" title="Sieh die Ergebnisse">Ergebnisse</span>
+    <span id="tab_data"    onclick="tab_select('data');"    class="tab_unselected" title="Sieh die Datenbankinformationen">Daten</span>
+  </div>
+
+  <div class="tab_content" id="tab_options_div">
+
+    <form name="form" id="form" action="" method="get" onsubmit="return false;">
+      <div class="hideshow_box">
+        <span class="hideshow_title">Routino OpenStreetMap Router</span>
+        Diese Website erlaubt Routing mit den Daten, die OpenStreetMap gesammelt hat.
+        W&auml;hle Start- und Endpunkt (klicke auf die Marker-Symbole unten), w&auml;hle die Routing-Vorgaben und dann finde den Weg.
+        <div align="center">
+          <a target="other" href="http://www.routino.org/">Routino Website</a>
+          |
+          <a target="other" href="documentation/">Dokumentation</a>
+        </div>
+      </div>
+
+      <div class="hideshow_box">
+        <span id="hideshow_language_show" onclick="hideshow_show('language');" class="hideshow_show">+</span>
+        <span id="hideshow_language_hide" onclick="hideshow_hide('language');" class="hideshow_hide">-</span>
+        <span class="hideshow_title">Sprache</span>
+
+        <!-- Note for translations: Only this HTML file needs to be translated, the Javascript has
+             no language specific information in it.  Only the body text and title attributes should
+             be changed, the values passed to the JavaScript and the element names must not be changed.
+             The selection below changes the language option passed to the router and selects the
+             output language not the web page language, the links are for that.  The router itself uses
+             the translations.xml file for the translated versions of the output. -->
+
+        <div id="hideshow_language_div" style="display: none;">
+          <table>
+            <tr>
+              <td><a id="lang_de_url" onmouseover="updateURL(this);" onfocus="updateURL(this);" onclick="updateURL(this);"  href="router.html.de" title="Deutsche Webseite">German</a>
+              <td>(DE)
+              <td><input name="language" type="radio" value="de" onchange="formSetLanguage()" checked>
+	    <tr>
+              <td><a id="lang_en_url" onmouseover="updateURL(this);" onfocus="updateURL(this);" onclick="updateURL(this);"  href="router.html.en" title="English language web page">English</a>
+              <td>(EN)
+              <td><input name="language" type="radio" value="en" onchange="formSetLanguage()">
+            <tr>
+              <td><a id="lang_nl_url" onmouseover="updateURL(this);" onfocus="updateURL(this);" onclick="updateURL(this);"  href="router.html.nl" title="Dutch language web page">Dutch</a>
+              <td>(NL)
+              <td><input name="language" type="radio" value="nl" onchange="formSetLanguage()">
+            <tr>
+              <td>Russian
+              <td>(RU)
+              <td><input name="language" type="radio" value="ru" onchange="formSetLanguage()">
+          </table>
+        </div>
+      </div>
+
+      <div class="hideshow_box">
+        <span id="hideshow_waypoint_show" onclick="hideshow_show('waypoint');" class="hideshow_hide">+</span>
+        <span id="hideshow_waypoint_hide" onclick="hideshow_hide('waypoint');" class="hideshow_show">-</span>
+        <span class="hideshow_title">Wegpunkte</span>
+        <div id="hideshow_waypoint_div">
+          <table id="waypoints">
+            <colgroup>
+              <col style="width: 25px;">
+              <col>
+              <col style="width: 76px;">
+            </colgroup>
+            <tr id="waypointXXX" style="display: none;">
+              <td>
+                <img name="waypointXXX" src="icons/marker-XXX-grey.png" title="Waypoint XXX Position - (click to add/remove on map)" alt="Waypoint XXX" onmousedown="markerToggleMap(XXX)">&nbsp;
+              <td>
+                <span id="coordsXXX">
+                  <input name="lonXXX" type="text" size="7" title="Waypoint XXX Longitude" onchange="formSetCoords(XXX);">E
+                  <input name="latXXX" type="text" size="7" title="Waypoint XXX Latitude"  onchange="formSetCoords(XXX);">N
+                </span>
+                <span id="searchXXX" style="display: none;">
+                  <input name="searchXXX" type="text" size="18" title="Waypoint XXX Location"> <!-- uses Javascript event for triggering -->
+                </span>
+              <td>
+                <img alt="?" src="icons/waypoint-search.png"   title="Search for location"         onmousedown="markerSearch(XXX);"  >
+                <img alt="G" src="icons/waypoint-locate.png"   title="Get current location"        onmousedown="markerLocate(XXX);"  >
+                <img alt="O" src="icons/waypoint-recentre.png" title="Centre map on this waypoint" onmousedown="markerRecentre(XXX);">
+                <img alt="^" src="icons/waypoint-up.png"       title="Move this waypoint up"       onmousedown="markerMoveUp(XXX);"  >
+                <img alt="+" src="icons/waypoint-add.png"      title="Add waypoint after this one" onmousedown="markerAddAfter(XXX);">
+                <br>
+                <img alt="#" src="icons/waypoint-coords.png"   title="Coordinates for location"    onmousedown="markerCoords(XXX);"  >
+                <img alt="~" src="icons/waypoint-home.png"     title="Toggle as home location"     onmousedown="markerHome(XXX);"    >
+                <img alt="o" src="icons/waypoint-centre.png"   title="Centre this waypoint on map" onmousedown="markerCentre(XXX);"  >
+                <img alt="v" src="icons/waypoint-down.png"     title="Move this waypoint down"     onmousedown="markerMoveDown(XXX);">
+                <img alt="-" src="icons/waypoint-remove.png"   title="Remove this waypoint"        onmousedown="markerRemove(XXX);"  >
+            <tr id="searchresultsXXX" style="display: none;">
+              <td colspan="3">
+            <!-- The waypoints are inserted by the JavaScript, see the "maxmarkers" variable in router.js.  -->
+            <tr>
+              <td colspan="3" align="center">
+                <input type="button" title="R&uuml;ckw&auml;rts" value="R&uuml;ckw&auml;rts" onmousedown="markersReverse();">
+                <input type="button" title="Add a new waypoint to make a loop" value="Close loop" onmousedown="markersLoop();">
+          </table>
+        </div>
+      </div>
+
+      <div class="hideshow_box">
+        <span id="hideshow_transport_show" onclick="hideshow_show('transport');" class="hideshow_hide">+</span>
+        <span id="hideshow_transport_hide" onclick="hideshow_hide('transport');" class="hideshow_show">-</span>
+        <span class="hideshow_title">Fortbewegungsart</span>
+        <div id="hideshow_transport_div">
+          <table>
+            <tr><td>Fu&szlig;g&auml;nger <td><input name="transport" type="radio" value="foot"       onchange="formSetTransport('foot'      )">
+            <tr><td>Reiter               <td><input name="transport" type="radio" value="horse"      onchange="formSetTransport('horse'     )">
+            <tr><td>Rollstuhl            <td><input name="transport" type="radio" value="wheelchair" onchange="formSetTransport('wheelchair')">
+            <tr><td>Fahrrad              <td><input name="transport" type="radio" value="bicycle"    onchange="formSetTransport('bicycle'   )">
+            <tr><td>Moped                <td><input name="transport" type="radio" value="moped"      onchange="formSetTransport('moped'     )">
+            <tr><td>Motorrad             <td><input name="transport" type="radio" value="motorcycle" onchange="formSetTransport('motorcycle')">
+            <tr><td>Auto                 <td><input name="transport" type="radio" value="motorcar"   onchange="formSetTransport('motorcar'  )">
+            <tr><td>LKW                  <td><input name="transport" type="radio" value="goods"      onchange="formSetTransport('goods'     )">
+            <tr><td>Schwertransport      <td><input name="transport" type="radio" value="hgv"        onchange="formSetTransport('hgv'       )">
+            <tr><td>Personenverkehr      <td><input name="transport" type="radio" value="psv"        onchange="formSetTransport('psv'       )">
+          </table>
+        </div>
+      </div>
+
+      <div class="hideshow_box">
+        <span id="hideshow_highway_show" onclick="hideshow_show('highway');" class="hideshow_show">+</span>
+        <span id="hideshow_highway_hide" onclick="hideshow_hide('highway');" class="hideshow_hide">-</span>
+        <span class="hideshow_title">Vorgaben zur Wegnutzung</span>
+        <div id="hideshow_highway_div" style="display: none;">
+          <table>
+            <tr><td>Autobahn:            <td><input name="highway-motorway"     type="text" size=3 onchange="formSetHighway('motorway'    )"><td>%
+            <tr><td>Schnellstra&szlig;e: <td><input name="highway-trunk"        type="text" size=3 onchange="formSetHighway('trunk'       )"><td>%
+            <tr><td>Bundesstra&szlig;e:  <td><input name="highway-primary"      type="text" size=3 onchange="formSetHighway('primary'     )"><td>%
+            <tr><td>Landesstra&szlig;e:  <td><input name="highway-secondary"    type="text" size=3 onchange="formSetHighway('secondary'   )"><td>%
+            <tr><td>Hauptstra&szlig;e:   <td><input name="highway-tertiary"     type="text" size=3 onchange="formSetHighway('tertiary'    )"><td>%
+            <tr><td>Stra&szlig;e:        <td><input name="highway-unclassified" type="text" size=3 onchange="formSetHighway('unclassified')"><td>%
+            <tr><td>Wohnstra&szlig;e:    <td><input name="highway-residential"  type="text" size=3 onchange="formSetHighway('residential' )"><td>%
+            <tr><td>Zufahrtsweg:         <td><input name="highway-service"      type="text" size=3 onchange="formSetHighway('service'     )"><td>%
+            <tr><td>Feld-(Wald-)weg:     <td><input name="highway-track"        type="text" size=3 onchange="formSetHighway('track'       )"><td>%
+            <tr><td>Fahrradweg:          <td><input name="highway-cycleway"     type="text" size=3 onchange="formSetHighway('cycleway'    )"><td>%
+            <tr><td>Weg:                 <td><input name="highway-path"         type="text" size=3 onchange="formSetHighway('path'        )"><td>%
+            <tr><td>Fu&szlig;weg:        <td><input name="highway-steps"        type="text" size=3 onchange="formSetHighway('steps'       )"><td>%
+            <tr><td>F&auml;hre:          <td><input name="highway-ferry"        type="text" size=3 onchange="formSetHighway('ferry'       )"><td>%
+          </table>
+        </div>
+      </div>
+
+      <div class="hideshow_box">
+        <span id="hideshow_speed_show" onclick="hideshow_show('speed');" class="hideshow_show">+</span>
+        <span id="hideshow_speed_hide" onclick="hideshow_hide('speed');" class="hideshow_hide">-</span>
+        <span class="hideshow_title">Geschwindigkeitsvorgaben</span>
+        <div id="hideshow_speed_div" style="display: none;">
+          <table>
+            <tr><td>Autobahn:            <td><input name="speed-motorway"     type="text" size=3 onchange="formSetSpeed('motorway'    )"><td>km/hr
+            <tr><td>Schnellstra&szlig;e: <td><input name="speed-trunk"        type="text" size=3 onchange="formSetSpeed('trunk'       )"><td>km/hr
+            <tr><td>Bundesstra&szlig;e:  <td><input name="speed-primary"      type="text" size=3 onchange="formSetSpeed('primary'     )"><td>km/hr
+            <tr><td>Landesstra&szlig;e:  <td><input name="speed-secondary"    type="text" size=3 onchange="formSetSpeed('secondary'   )"><td>km/hr
+            <tr><td>Hauptstra&szlig;e:   <td><input name="speed-tertiary"     type="text" size=3 onchange="formSetSpeed('tertiary'    )"><td>km/hr
+            <tr><td>Stra&szlig;e:        <td><input name="speed-unclassified" type="text" size=3 onchange="formSetSpeed('unclassified')"><td>km/hr
+            <tr><td>Wohnstra&szlig;e:    <td><input name="speed-residential"  type="text" size=3 onchange="formSetSpeed('residential' )"><td>km/hr
+            <tr><td>Zufahrtsweg:         <td><input name="speed-service"      type="text" size=3 onchange="formSetSpeed('service'     )"><td>km/hr
+            <tr><td>Feld-(Wald-)weg:     <td><input name="speed-track"        type="text" size=3 onchange="formSetSpeed('track'       )"><td>km/hr
+            <tr><td>Fahrradweg:          <td><input name="speed-cycleway"     type="text" size=3 onchange="formSetSpeed('cycleway'    )"><td>km/hr
+            <tr><td>Weg:                 <td><input name="speed-path"         type="text" size=3 onchange="formSetSpeed('path'        )"><td>km/hr
+            <tr><td>Fu&szlig;weg:        <td><input name="speed-steps"        type="text" size=3 onchange="formSetSpeed('steps'       )"><td>km/hr
+            <tr><td>F&auml;hre:          <td><input name="speed-ferry"        type="text" size=3 onchange="formSetSpeed('ferry'       )"><td>km/hr
+          </table>
+        </div>
+      </div>
+
+      <div class="hideshow_box">
+        <span id="hideshow_property_show" onclick="hideshow_show('property');" class="hideshow_show">+</span>
+        <span id="hideshow_property_hide" onclick="hideshow_hide('property');" class="hideshow_hide">-</span>
+        <span class="hideshow_title">Vorgaben zur Wegbeschaffenheit</span>
+        <div id="hideshow_property_div" style="display: none;">
+          <table>
+            <tr><td>befestigt:    <td><input name="property-paved"        type="text" size=3 onchange="formSetProperty('paved'       )"><td>%
+            <tr><td>mehrspurig:   <td><input name="property-multilane"    type="text" size=3 onchange="formSetProperty('multilane'   )"><td>%
+            <tr><td>Br&uuml;cken: <td><input name="property-bridge"       type="text" size=3 onchange="formSetProperty('bridge'      )"><td>%
+            <tr><td>Tunnel:       <td><input name="property-tunnel"       type="text" size=3 onchange="formSetProperty('tunnel'      )"><td>%
+            <tr><td>Wanderweg:    <td><input name="property-footroute"    type="text" size=3 onchange="formSetProperty('footroute'   )"><td>%
+            <tr><td>Radweg:       <td><input name="property-bicycleroute" type="text" size=3 onchange="formSetProperty('bicycleroute')"><td>%
+          </table>
+        </div>
+      </div>
+
+      <div class="hideshow_box">
+        <span id="hideshow_restriction_show" onclick="hideshow_show('restriction');" class="hideshow_show">+</span>
+        <span id="hideshow_restriction_hide" onclick="hideshow_hide('restriction');" class="hideshow_hide">-</span>
+        <span class="hideshow_title">andere Vorgaben</span>
+        <div id="hideshow_restriction_div" style="display: none;">
+          <table>
+            <tr><td>beachte Einbahnstra&szlig;en:<td><input name="restrict-oneway" type="checkbox"    onchange="formSetRestriction('oneway')"><td>
+            <tr><td>beachte Abbiegeverbot:       <td><input name="restrict-turns"  type="checkbox"    onchange="formSetRestriction('turns' )"><td>
+            <tr><td>Gewicht:                     <td><input name="restrict-weight" type="text" size=3 onchange="formSetRestriction('weight')"><td>Tonnen
+            <tr><td>H&ouml;he:                   <td><input name="restrict-height" type="text" size=3 onchange="formSetRestriction('height')"><td>Meter
+            <tr><td>Breite:                      <td><input name="restrict-width"  type="text" size=3 onchange="formSetRestriction('width' )"><td>Meter
+            <tr><td>L&auml;nge:                  <td><input name="restrict-length" type="text" size=3 onchange="formSetRestriction('length')"><td>Meter
+          </table>
+        </div>
+      </div>
+
+      <div class="hideshow_box">
+        <span class="hideshow_title">Suche</span>
+        <input type="button" title="Find shortest route" id="shortest" value="k&uuml;rzeste" onclick="findRoute('shortest');">
+        <input type="button" title="Find quickest route" id="quickest" value="schnellste" onclick="findRoute('quickest');">
+      </div>
+
+      <div class="hideshow_box">
+        <span class="hideshow_title">Links</span>
+        <a id="permalink_url" onmouseover="updateURL(this);" onfocus="updateURL(this);" onclick="updateURL(this);" href="router.html">Dauerhafter Link zu diesen Vorgaben</a>
+        <br>
+        <a id="edit_url" onmouseover="updateURL(this);" onfocus="updateURL(this);" onclick="updateURL(this);" href="http://www.openstreetmap.org/" target="edit">Bearbeitet die OSM-Daten in Potlatch</a>
+      </div>
+
+      <div class="hideshow_box">
+        <span id="hideshow_help_options_show" onclick="hideshow_show('help_options');" class="hideshow_hide">+</span>
+        <span id="hideshow_help_options_hide" onclick="hideshow_hide('help_options');" class="hideshow_show">-</span>
+        <span class="hideshow_title">Hilfe</span>
+        <div id="hideshow_help_options_div">
+          <div class="scrollable">
+            <p>
+            <b>Schnellanleitung</b>
+            <br>
+            Klicke auf die Marker-Bildchen (oben), um sie in der Mitte der Karte (rechts) zu positionieren. Dann 
+	    ziehe das Bildchen auf die genaue Position. Das Zoomen der Karte vor der Patzierung ist vermutlich am einfachsten.
+	    Alternativ kann man die geografische Breite und L&auml;nge in den K&auml;stchen eintragen.
+            <p>
+	    W&auml;hle die Fortbewegungsart, die Vorgaben zur Wegnutzung, die Geschwindigkeitsvorgaben, 
+	    die Vorgaben zur Wegbeschaffenheit und die anderen Vorgaben von den obigen Auswahlfeldern.
+	    Ein Klick auf "k&uuml;rzeste" oder "schnellste" ermittelt die entsprechende Verbindung und zeigt sie in der Karte an.
+            <p>
+            <b>Wegpunkte</b>
+            <br>
+	    Ein Klick auf das Marker-Bildchen (oben) schaltet die Sichbarkeit in der Karte ein bzw. aus.
+	    Die Berechnung Route erfolgt in der Reihenfolge der Wegpunkte (so gut, wie es f&uuml;r die 
+	    gew&auml;hlte Fortbewegungsart m&ouml;glich ist).
+            <p>
+            <b>Fortbewegungsart</b>
+            <br>
+	    Die Auswahl der Fortbewegungsart bestimmt die bei der Routenberechnung erlaubten Wegtypen und die 
+	    Vorgabeeinstellungen aller anderen Parameter.
+            <p>
+            <b>Vorgaben zur Wegnutzung</b>
+            <br>
+	    Die Vorgaben zur Wegnutzung bestimmen die Priorisierung von Wegarten.
+	    Wenn z. B. Schnellstra&szlig;en mit 110% und Bundesstra&szlig;en mit 100% angegeben werden, wird 
+	    bei zwei m&ouml;glichen Wegwahlen die Schnellstra&szlig;e solange bevorzugt wird, wie der 
+	    L&auml;ngen(oder Zeit-)unterschied 10% nicht &uuml;berschreitet.
+            <p>
+            <b>Geschwindigkeitsvorgaben</b>
+            <br>
+	    Die hier geannten Geschwindigkeiten werden f&uuml;r den jeweiligen Wegtyp finden Anwendung wenn keine
+	    andere Geschwindkeitsbegrenzung mit geringerem Wert bekannt ist.
+            <p>
+            <b>Vorgaben zur Wegbeschaffenheit</b>
+            <br>
+	    Die Vorgaben zur Wegbeschaffenheit werden als Prozentangaben verwendet, um die Verh&auml;ltnisse 
+	    der Wegbenutzung zu steuern.
+	    Wenn z. B. befestigte Wege mit 75% angegeben sind, werden unbefestigte automatisch mit 25% angenommen, so
+	    werden Wege ausgew&auml;hlt, die mindestens drei mal l&auml;nger auf befestigten Wegen verlaufen.
+            <p>
+            <b>andere Vorgaben</b>
+            <br>
+	    Die Ber&uuml;cksichtigung von Benutzungs-Begrenzungen durch Gewicht, H&ouml;he, L&auml;nge und 
+	    Breite ist m&ouml;glich. Genauso k&ouml;nnen Einbahnstra&szlig;enbeschr&auml;kungen ignoriert werden 
+	    (z. B. als Fu&szlig;g&auml;nger). 
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="tab_content" id="tab_results_div" style="display: none;">
+
+    <div class="hideshow_box">
+      <span class="hideshow_title">Status</span>
+      <div id="result_status">
+        <div id="result_status_not_run">
+          <b><i>Router l&auml;uft nicht</i></b>
+        </div>
+        <div id="result_status_running"  style="display: none;">
+          <b>Router l&auml;uft...</b>
+        </div>
+        <div id="result_status_complete" style="display: none;">
+          <b>Routing fertig</b>
+          <br>
+          <a id="router_log_complete" target="router_log" href="#">zeige Details</a>
+        </div>
+        <div id="result_status_error"    style="display: none;">
+          <b>Router Fehler</b>
+          <br>
+          <a id="router_log_error" target="router_log" href="#">zeige Details</a>
+        </div>
+        <div id="result_status_failed"   style="display: none;">
+          <b>Router funktioniert nicht</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="hideshow_box">
+      <span id="hideshow_shortest_show" onclick="hideshow_show('shortest');" class="hideshow_show">+</span>
+      <span id="hideshow_shortest_hide" onclick="hideshow_hide('shortest');" class="hideshow_hide">-</span>
+      <span class="hideshow_title">k&uuml;rzester Weg</span>
+      <div id="shortest_status">
+        <div id="shortest_status_no_info">
+          <b><i>keine Information</i></b>
+        </div>
+        <div id="shortest_status_info" style="display: none;">
+        </div>
+      </div>
+      <div id="hideshow_shortest_div" style="display: none;">
+        <div id="shortest_links" style="display: none;">
+          <table>
+            <tr><td>HTML:            <td><a id="shortest_html"      target="shortest_html"      href="#">&ouml;ffne Popup</a>
+            <tr><td>GPX Track-Datei: <td><a id="shortest_gpx_track" target="shortest_gpx_track" href="#">&ouml;ffne Popup</a>
+            <tr><td>GPX Routen-Datei:<td><a id="shortest_gpx_route" target="shortest_gpx_route" href="#">&ouml;ffne Popup</a>
+            <tr><td>Volltext-Datei:  <td><a id="shortest_text_all"  target="shortest_text_all"  href="#">&ouml;ffne Popup</a>
+            <tr><td>Text-Datei:      <td><a id="shortest_text"      target="shortest_text"      href="#">&ouml;ffne Popup</a>
+          </table>
+          <hr>
+        </div>
+        <div id="shortest_route">
+        </div>
+      </div>
+    </div>
+
+    <div class="hideshow_box">
+      <span id="hideshow_quickest_show" onclick="hideshow_show('quickest');" class="hideshow_show">+</span>
+      <span id="hideshow_quickest_hide" onclick="hideshow_hide('quickest');" class="hideshow_hide">-</span>
+      <span class="hideshow_title">schnellste Route</span>
+      <div id="quickest_status">
+        <div id="quickest_status_no_info">
+          <b><i>keine Information</i></b>
+        </div>
+        <div id="quickest_status_info" style="display: none;">
+        </div>
+      </div>
+      <div id="hideshow_quickest_div" style="display: none;">
+        <div id="quickest_links" style="display: none;">
+          <table>
+            <tr><td>HTML:            <td><a id="quickest_html"      target="quickest_html"      href="#">&ouml;ffne Popup</a>
+            <tr><td>GPX Track-Datei: <td><a id="quickest_gpx_track" target="quickest_gpx_track" href="#">&ouml;ffne Popup</a>
+            <tr><td>GPX Routen-Datei:<td><a id="quickest_gpx_route" target="quickest_gpx_route" href="#">&ouml;ffne Popup</a>
+            <tr><td>Volltext-Datei:  <td><a id="quickest_text_all"  target="quickest_text_all"  href="#">&ouml;ffne Popup</a>
+            <tr><td>Text-Datei:      <td><a id="quickest_text"      target="quickest_text"      href="#">&ouml;ffne Popup</a>
+          </table>
+          <hr>
+        </div>
+        <div id="quickest_route">
+        </div>
+      </div>
+    </div>
+
+    <div class="hideshow_box">
+      <span id="hideshow_help_route_show" onclick="hideshow_show('help_route');" class="hideshow_hide">+</span>
+      <span id="hideshow_help_route_hide" onclick="hideshow_hide('help_route');" class="hideshow_show">-</span>
+      <span class="hideshow_title">Hilfe</span>
+      <div id="hideshow_help_route_div">
+        <div class="scrollable">
+          <p>
+          <b>Schnellanleitung</b>
+          <br>
+	  Nach der Routenberechnung kann man eine GPX oder eine einfache Textdatei (Kurz- oder Langfassung)
+	  herunterladen. Ebenso kann man die Routenbeschreibung ansehen und in ausgew&auml;lte Bereiche zoomen.
+          <p>
+          <b>Probleml&ouml;sung</b>
+          <br>
+	  Wenn der Router einen Fehler meldet liegt es meistens daran, dass kein Weg zwischen den gew&auml;lten Punkten unter
+	  Beachtung der Vorgaben gefunden werden kann. Das Bewegen eines oder mehrere Punkte oder das ver&auml;ndern von
+	  Vorgaben sollte es erlauben eine Route zu finden.
+          <p>
+          <b>Ausgabe-Formate</b>
+          <br>
+          <dl>
+            <dt>HTMLs
+            <dd>Eine Beschreibung der Route mit Anweisungen f&uuml;r jede wichtige Abzweigung.
+            <dt>GPX Track-Datei
+            <dd>Die gleichen Informationen, die in der Karte angezeigt werden mit Punkten f&uuml;r jeden Abzweig 
+	    und Linien f&uuml;r jedes Teilst&uuml;ck.
+            <dt>GPX Routen-Datei
+            <dd>Die gleichen Informationen, die im Text angezeigt werden mit einem Wegpunkt f&uuml;r 
+	    jede wichtige Richtungs&auml;nderung.
+            <dt>Volltext-Datei
+            <dd>Eine aller Knoten und die Abst&auml;nde zwischen ihnen, sowie die Gesamtentfernung vom i
+		Startpunkt zum jeweiligen Konten.
+            <dt>Text-Datei
+            <dd>Die gleiche Information, die als Text angezeigt wird.
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="tab_content" id="tab_data_div" style="display: none;">
+    <div class="hideshow_box">
+      <span class="hideshow_title">Statistik</span>
+      <div id="statistics_data"></div>
+      <a id="statistics_link" href="statistics.cgi" onclick="displayStatistics();return(false);">zeige die Statistik</a>
+    </div>
+
+    <div class="hideshow_box">
+      <span class="hideshow_title">Ansichten</span>
+	Die Anzeige der Daten kann auf verschiedene Weise angepasst werden.	
+      <br>
+      <a id="visualiser_url" onmouseover="updateURL(this);" onfocus="updateURL(this);" onclick="updateURL(this);" href="visualiser.html" target="visualiser">anpassen dieser Kartenansicht</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Right hand side of window - map -->
+
+<div class="right_panel">
+  <div class="map" id="map">
+    <noscript>
+      Javascript is <em>required</em> to use this web page because of the
+      interactive map.
+    </noscript>
+  </div>
+  <div class="attribution">
+    Router: <a href="http://www.routino.org/" target="routino">Routino</a>
+    |
+    Geo Data: <span id="attribution_data"></span>
+    |
+    Tiles: <span id="attribution_tile"></span>
+  </div>
+</div>
+
+</BODY>
+
+</HTML>
