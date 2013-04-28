@@ -286,6 +286,8 @@ SegmentsX *CreateSuperSegments(NodesX *nodesx,SegmentsX *segmentsx,WaysX *waysx)
                    else
                       AppendSegmentList(supersegmentsx,segmentx->way,i,result->node,DISTANCE((distance_t)result->score));
 
+                   //možná tady spojení as/descent
+                   
                    ss++;
                   }
 

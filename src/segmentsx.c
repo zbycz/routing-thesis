@@ -36,6 +36,7 @@
 #include "files.h"
 #include "logging.h"
 #include "sorting.h"
+#include "srtmHgtReader.h"
 
 
 /* Global variables */
@@ -708,7 +709,13 @@ void MeasureSegments(SegmentsX *segmentsx,NodesX *nodesx,WaysX *waysx)
 
     segmentx.distance=DISTANCE(DistanceX(nodex1,nodex2))|DISTFLAG(segmentx.distance);
     segmentx.distance&=~SEGMENT_AREA;
+    
+    //spočítat převýšení
+    //srtmGetElevation(radians_to_degrees(nodex1->latitude), radians_to_degrees(nodex1->longitude))
+    //segmentx.ascent
 
+            
+            
     /* Write the modified segment */
 
     WriteFile(fd,&segmentx,sizeof(SegmentX));
@@ -747,7 +754,7 @@ void MeasureSegments(SegmentsX *segmentsx,NodesX *nodesx,WaysX *waysx)
 
 
 /*++++++++++++++++++++++++++++++++++++++
-  Index the segments by creating the firstnode index and filling in the segment next2 parameter.
+  Index the segments by creating the firstnode index and filling in the segment next2 parameter (like linked list)
 
   SegmentsX *segmentsx The set of segments to modify.
 

@@ -673,6 +673,8 @@ void PruneShortSegments(NodesX *nodesx,SegmentsX *segmentsx,WaysX *waysx,distanc
           segmentx1->distance+=DISTANCE(segmentx2->distance)/2;
           segmentx3->distance+=DISTANCE(segmentx2->distance)-DISTANCE(segmentx2->distance)/2;
 
+          //tady upravit ascent/descent?
+          
           if(segmentx1->node1==node1)
             {
              if(segmentx1->node2!=newnode)

@@ -221,6 +221,8 @@ duration_t Duration(Segment *segmentp,Way *wayp,Profile *profile)
  speed_t    speed2=profile->speed[HIGHWAY(wayp->type)];
  distance_t distance=DISTANCE(segmentp->distance);
 
+ // 
+ 
  if(speed1==0)
    {
     if(speed2==0)

@@ -46,6 +46,9 @@ struct _SegmentX
  way_t      way;                /*+ The id of the way; initially the OSM value, later the WayX index. +*/
 
  distance_t distance;           /*+ The distance between the nodes. +*/
+ 
+ float      ascent;
+ float      descent;
 };
 
 
