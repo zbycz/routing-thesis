@@ -721,13 +721,6 @@ void MeasureSegments(SegmentsX *segmentsx,NodesX *nodesx,WaysX *waysx)
             radians_to_degrees(latlong_to_radians(nodex1->latitude)), radians_to_degrees(latlong_to_radians(nodex1->longitude)),
             radians_to_degrees(latlong_to_radians(nodex2->latitude)), radians_to_degrees(latlong_to_radians(nodex2->longitude)));
 
-    
-//    printf("        LL %0.3f,%0.3f -> %0.3f,%0.3f",
-//            radians_to_degrees(latlong_to_radians(nodex1->latitude)), radians_to_degrees(latlong_to_radians(nodex1->longitude)),
-//            radians_to_degrees(latlong_to_radians(nodex2->latitude)), radians_to_degrees(latlong_to_radians(nodex2->longitude)));
-//    printf("- AD: %0.1f/%0.1f m\n", ad.ascent, ad.descent);
-
-    
     segmentx.ascent = ad.ascent;
     segmentx.descent = ad.descent;
     

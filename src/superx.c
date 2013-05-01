@@ -414,6 +414,8 @@ SegmentsX *MergeSuperSegments(SegmentsX *segmentsx,SegmentsX *supersegmentsx)
     else
        AppendSegmentList(mergedsegmentsx,segmentx->way,segmentx->node1,segmentx->node2,segmentx->distance|SEGMENT_NORMAL, segmentx->ascent, segmentx->descent);
 
+    printf("Appended: %f, %f\n", segmentx->ascent, segmentx->descent);
+    
     if(!((i+1)%10000))
        printf_middle("Merging Segments: Segments=%"Pindex_t" Super=%"Pindex_t" Merged=%"Pindex_t" Added=%"Pindex_t,i+1,j,merged,added);
    }

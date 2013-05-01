@@ -504,6 +504,30 @@ if(!option_process_only)
 
  SortTurnRelationListGeographically(Relations,Nodes,Segments);
 
+ 
+ 
+ 
+ SegmentsX * segmentsx = Segments;
+ SegmentX segmentx;
+ int index=0;
+ /* Open the file read-only */
+ segmentsx->fd=ReOpenFile(segmentsx->filename_tmp);
+ /* Read the on-disk image */
+ while(!ReadFile(segmentsx->fd,&segmentx,sizeof(SegmentX)))
+   {
+     printf("<read: %0.5f, %0.5f> ", segmentx.ascent, segmentx.descent);
+    if(!(index++%4)) printf("\n");
+   }
+ /* Close the file */
+ segmentsx->fd=CloseFile(segmentsx->fd);
+ /* Print the final message */
+
+ 
+ 
+ 
+ 
+ 
+ 
  /* Output the results */
 
  printf("\nWrite Out Database Files\n========================\n\n");
