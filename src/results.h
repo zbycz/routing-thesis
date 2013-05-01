@@ -50,6 +50,9 @@ struct _Result
  score_t   score;               /*+ The best actual weighted distance or duration score from the start to the node. +*/
  score_t   sortby;              /*+ The best possible weighted distance or duration score from the start to the finish. +*/
 
+ float ascent;
+ float descent;
+ 
  uint32_t  queued;              /*+ The position of this result in the queue. +*/
 };
 

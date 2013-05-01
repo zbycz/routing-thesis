@@ -36,6 +36,7 @@
 #include "files.h"
 #include "logging.h"
 #include "sorting.h"
+
 #include "srtmHgtReader.h"
 
 
@@ -160,7 +161,7 @@ void FreeSegmentList(SegmentsX *segmentsx,int keep)
   distance_t distance The distance between the nodes (or just the flags).
   ++++++++++++++++++++++++++++++++++++++*/
 
-void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,distance_t distance)
+void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,distance_t distance, float ascent, float descent)
 {
  SegmentX segmentx;
 
@@ -181,6 +182,8 @@ void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,
  segmentx.next2=NO_SEGMENT;
  segmentx.way=way;
  segmentx.distance=distance;
+ segmentx.ascent=ascent;
+ segmentx.descent=descent;
 
  WriteFile(segmentsx->fd,&segmentx,sizeof(SegmentX));
 
@@ -696,13 +699,15 @@ void MeasureSegments(SegmentsX *segmentsx,NodesX *nodesx,WaysX *waysx)
 
     NodeX *nodex1=LookupNodeX(nodesx,node1,1);
     NodeX *nodex2=LookupNodeX(nodesx,node2,2);
+    
+    TSrtmAscentDescent ad;
 
     /* Replace the node and way ids with their indexes */
 
     segmentx.node1=node1;
     segmentx.node2=node2;
     segmentx.way  =way;
-
+    
     SetBit(segmentsx->usedway,segmentx.way);
 
     /* Set the distance but keep the other flags except for area */
@@ -710,12 +715,22 @@ void MeasureSegments(SegmentsX *segmentsx,NodesX *nodesx,WaysX *waysx)
     segmentx.distance=DISTANCE(DistanceX(nodex1,nodex2))|DISTFLAG(segmentx.distance);
     segmentx.distance&=~SEGMENT_AREA;
     
-    //spočítat převýšení
-    //srtmGetElevation(radians_to_degrees(nodex1->latitude), radians_to_degrees(nodex1->longitude))
-    //segmentx.ascent
+    /* Compute the ascent descent */
+    
+    ad = srtmGetAscentDescent(
+            radians_to_degrees(latlong_to_radians(nodex1->latitude)), radians_to_degrees(latlong_to_radians(nodex1->longitude)),
+            radians_to_degrees(latlong_to_radians(nodex2->latitude)), radians_to_degrees(latlong_to_radians(nodex2->longitude)));
 
-            
-            
+    
+//    printf("        LL %0.3f,%0.3f -> %0.3f,%0.3f",
+//            radians_to_degrees(latlong_to_radians(nodex1->latitude)), radians_to_degrees(latlong_to_radians(nodex1->longitude)),
+//            radians_to_degrees(latlong_to_radians(nodex2->latitude)), radians_to_degrees(latlong_to_radians(nodex2->longitude)));
+//    printf("- AD: %0.1f/%0.1f m\n", ad.ascent, ad.descent);
+
+    
+    segmentx.ascent = ad.ascent;
+    segmentx.descent = ad.descent;
+    
     /* Write the modified segment */
 
     WriteFile(fd,&segmentx,sizeof(SegmentX));

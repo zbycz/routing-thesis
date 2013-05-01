@@ -45,8 +45,6 @@
 #include "tagging.h"
 #include "uncompress.h"
 
-#include "srtmAdaptor.h"
-
 
 /* Global variables */
 
@@ -408,10 +406,6 @@ if(!option_process_only)
     IndexSegments(Segments,Nodes,Ways);
    }
 
- /* Add ascent/descent to all basic segments */
- 
- AddAscentDescentToSegments(Nodes, Segments);
- 
  /* Repeated iteration on Super-Nodes and Super-Segments */
 
  do
