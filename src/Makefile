@@ -29,7 +29,7 @@ LD=gcc
 
 # Compilation program options
 
-CFLAGS=-Wall -Wmissing-prototypes -std=c99
+CFLAGS=-Wall -Wmissing-prototypes #-std=c99
 #CFLAGS+=-Wextra -pedantic
 LDFLAGS=-lm
 
@@ -87,7 +87,8 @@ PLANETSPLITTER_OBJ=planetsplitter.o \
 	           files.o logging.o \
 	           results.o queue.o sorting.o \
 	           xmlparse.o tagging.o \
-	           uncompress.o osmxmlparse.o osmpbfparse.o osmo5mparse.o osmparser.o
+	           uncompress.o osmxmlparse.o osmpbfparse.o osmo5mparse.o osmparser.o \
+		   srtmAdaptor.o srtmHgtReader.o
 
 planetsplitter : $(PLANETSPLITTER_OBJ)
 	$(LD) $(PLANETSPLITTER_OBJ) -o $@ $(LDFLAGS)
@@ -100,7 +101,8 @@ PLANETSPLITTER_SLIM_OBJ=planetsplitter-slim.o \
 	                files.o logging.o \
 	                results.o queue.o sorting.o \
 	                xmlparse.o tagging.o \
-	                uncompress.o osmxmlparse.o osmpbfparse.o osmo5mparse.o osmparser.o
+	                uncompress.o osmxmlparse.o osmpbfparse.o osmo5mparse.o osmparser.o \
+	                srtmAdaptor.o srtmHgtReader.o
 
 planetsplitter-slim : $(PLANETSPLITTER_SLIM_OBJ)
 	$(LD) $(PLANETSPLITTER_SLIM_OBJ) -o $@ $(LDFLAGS)

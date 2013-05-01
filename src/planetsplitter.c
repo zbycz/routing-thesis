@@ -45,6 +45,8 @@
 #include "tagging.h"
 #include "uncompress.h"
 
+#include "srtmAdaptor.h"
+
 
 /* Global variables */
 

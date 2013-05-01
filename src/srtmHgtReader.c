@@ -7,6 +7,7 @@
 
 #include <stdio.h> 
 #include <stdlib.h> //exit
+#include <stdint.h> //int16_t
 #include <math.h> //fmod
 
 

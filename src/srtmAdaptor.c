@@ -3,6 +3,7 @@
 #include "srtmHgtReader.h"
 #include "types.h"
 #include "nodesx.h"
+#include "segmentsx.h"
 
 //#define radians_to_degrees(xxx) ((xxx)*(180.0/M_PI))
 //#define degrees_to_radians(xxx) ((xxx)*(M_PI/180.0))
@@ -33,8 +34,13 @@ void AddAscentDescentToSegments(NodesX* nodesx, SegmentsX* segmentsx)
     index_t node1=segmentx.node1; 
     index_t node2=segmentx.node2; 
     
+    printf("n1 %u, n2 %u\n", node1, node2);
+    
     NodeX *nodex1=LookupNodeX(nodesx,node1,1);
+    
+    printf("%f", radians_to_degrees(nodex1->latitude));
     NodeX *nodex2=LookupNodeX(nodesx,node2,2);
+    printf("%f", radians_to_degrees(nodex2->latitude));
     
     float ele1 = srtmGetElevation(radians_to_degrees(nodex1->latitude), radians_to_degrees(nodex1->longitude));
     float ele2 = srtmGetElevation(radians_to_degrees(nodex2->latitude), radians_to_degrees(nodex2->longitude));
@@ -44,6 +50,7 @@ void AddAscentDescentToSegments(NodesX* nodesx, SegmentsX* segmentsx)
     segmentx.descent = eledif > 0 ? eledif : 0;
     
     
+    PutBackSegmentX(segmentsx, segmentx);
     
     index++;
 
