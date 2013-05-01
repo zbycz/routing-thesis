@@ -47,6 +47,9 @@ struct _Segment
  index_t    way;                /*+ The index of the way associated with the segment. +*/
 
  distance_t distance;           /*+ The distance between the nodes. +*/
+ 
+ float      ascent;
+ float      descent;
 };
 
 

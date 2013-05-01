@@ -638,7 +638,7 @@ void ProcessWayTags(TagList *tags,int64_t way_id,int mode)
 
     way.type=Highway_None;
 
-    AppendSegmentList(segments,id,NO_NODE_ID,NO_NODE_ID,0);
+    AppendSegmentList(segments,id,NO_NODE_ID,NO_NODE_ID,0,0,0);
    }
 
  if(mode==MODE_DELETE)
@@ -1046,7 +1046,7 @@ void ProcessWayTags(TagList *tags,int64_t way_id,int mode)
           logerror("Node %"Pnode_t" in way %"Pway_t" appears more than once.\n",to,id);
 
        if(!duplicated)
-          AppendSegmentList(segments,id,from,to,area+oneway);
+          AppendSegmentList(segments,id,from,to,area+oneway, 0,0); //TODO: may have non-zero ascent/descent?
       }
    }
 }
