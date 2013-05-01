@@ -515,8 +515,9 @@ if(!option_process_only)
  /* Read the on-disk image */
  while(!ReadFile(segmentsx->fd,&segmentx,sizeof(SegmentX)))
    {
-     printf("<read: %0.5f, %0.5f> ", segmentx.ascent, segmentx.descent);
-    if(!(index++%4)) printf("\n");
+    fprintf(stderr, "read: id%d node(%u,%u) ad(%.1f,%.1f)\n", index, segmentx.node1, segmentx.node2, segmentx.ascent, segmentx.descent);
+
+     index++;
    }
  /* Close the file */
  segmentsx->fd=CloseFile(segmentsx->fd);

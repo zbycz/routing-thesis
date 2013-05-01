@@ -724,6 +724,8 @@ void MeasureSegments(SegmentsX *segmentsx,NodesX *nodesx,WaysX *waysx)
     segmentx.ascent = ad.ascent;
     segmentx.descent = ad.descent;
     
+    fprintf(stderr, "measure: id%d node(%u,%u) ad(%.1f,%.1f)\n", index, node1, node2, ad.ascent, ad.descent);
+    
     /* Write the modified segment */
 
     WriteFile(fd,&segmentx,sizeof(SegmentX));
@@ -1182,6 +1184,8 @@ void SaveSegmentList(SegmentsX *segmentsx,const char *filename)
     segment.next2   =segmentx.next2;
     segment.way     =segmentx.way;
     segment.distance=segmentx.distance;
+    segment.ascent  =segmentx.ascent;
+    segment.descent =segmentx.descent;
 
     if(IsSuperSegment(&segment))
        super_number++;

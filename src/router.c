@@ -433,7 +433,7 @@ int main(int argc,char** argv)
     fprintf(stderr,"Error: Profile is invalid or not compatible with database.\n");
     return(1);
    }
-
+ 
  /* Loop through all pairs of points */
 
  for(point=1;point<=NWAYPOINTS;point++)

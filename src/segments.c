@@ -221,9 +221,12 @@ duration_t Duration(Segment *segmentp,Way *wayp,Profile *profile)
  speed_t    speed2=profile->speed[HIGHWAY(wayp->type)];
  distance_t distance=DISTANCE(segmentp->distance);
 
- // 
+ float    procent = segmentp->ascent/distance*200 + 1.0;
 
- printf("dist %0.3f, %0.3f \n", segmentp->ascent, segmentp->descent);
+ printf("distance %d ", distance);
+ 
+ distance = procent * distance;
+ printf("distance %d\n", distance);
  
  if(speed1==0)
    {
