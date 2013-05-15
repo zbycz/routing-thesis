@@ -175,6 +175,15 @@ void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,
 
     if(distance&(ONEWAY_2TO1|ONEWAY_1TO2))
        distance^=ONEWAY_2TO1|ONEWAY_1TO2;
+    
+    float tmp;
+    tmp=ascent;
+    ascent=descent;
+    descent = tmp;
+    
+    tmp=ascentOn;
+    ascentOn=descentOn;
+    descentOn=ascentOn;
    }
 
  segmentx.node1=node1;

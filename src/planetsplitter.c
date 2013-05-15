@@ -505,8 +505,7 @@ if(!option_process_only)
  SortTurnRelationListGeographically(Relations,Nodes,Segments);
 
  
-// 
-// 
+// //check if there are bad data somewhere
 // SegmentsX * segmentsx = Segments;
 // SegmentX segmentx;
 // int index=0;
@@ -514,8 +513,9 @@ if(!option_process_only)
 // segmentsx->fd=ReOpenFile(segmentsx->filename_tmp);
 // /* Read the on-disk image */
 // while(!ReadFile(segmentsx->fd,&segmentx,sizeof(SegmentX)))
-//   {
-//    fprintf(stderr, "read: id%d node(%u,%u) ad(%.1f,%.1f)\n", index, segmentx.node1, segmentx.node2, segmentx.ascent, segmentx.descent);
+// {
+//     if(isnan(segmentx.ascent))
+//    fprintf(stderr, "read: id%d sup%d, node(%u,%u) ad(%.1f,%.1f)\n", index, (segmentx.distance&SEGMENT_SUPER != 0), segmentx.node1, segmentx.node2, segmentx.ascent, segmentx.descent);
 //
 //     index++;
 //   }
