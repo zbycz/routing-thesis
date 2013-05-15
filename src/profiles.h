@@ -54,6 +54,8 @@ typedef struct _Profile
  height_t     height;                    /*+ The minimum height of vehicles on the route. +*/
  width_t      width;                     /*+ The minimum width of vehicles on the route. +*/
  length_t     length;                    /*+ The minimum length of vehicles on the route. +*/
+ 
+ float      hills;
 }
  Profile;
 

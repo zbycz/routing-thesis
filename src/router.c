@@ -87,6 +87,7 @@ int main(int argc,char** argv)
  index_t   start_node=NO_NODE,finish_node=NO_NODE;
  index_t   join_segment=NO_SEGMENT;
  int       arg,point;
+ float     hills = 0;
 
  /* Parse the command line arguments */
 
@@ -348,9 +349,12 @@ int main(int argc,char** argv)
        profile->width=metres_to_width(atof(&argv[arg][8]));
     else if(!strncmp(argv[arg],"--length=",9))
        profile->length=metres_to_length(atof(&argv[arg][9]));
+    else if(!strncmp(argv[arg],"--hills=",8))
+       hills=atof(&argv[arg][8]);
     else
        print_usage(0,argv[arg],NULL);
    }
+ profile->hills = hills; //zero means no optimization
 
  for(point=1;point<=NWAYPOINTS;point++)
     if(point_used[point]==1 || point_used[point]==2)
