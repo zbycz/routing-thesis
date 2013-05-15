@@ -50,6 +50,8 @@ struct _Segment
  
  float      ascent;
  float      descent;
+ float      ascentOn;
+ float      descentOn;
 };
 
 

@@ -223,7 +223,7 @@ duration_t Duration(Segment *segmentp,Way *wayp,Profile *profile)
 
  float    procent = segmentp->ascent/distance*200 + 1.0;
 
- printf("distance %d ", distance);
+ printf("distance %d, proc %f, ", distance, procent);
  
  distance = procent * distance;
  printf("distance %d\n", distance);

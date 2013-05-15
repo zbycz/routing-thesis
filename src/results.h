@@ -52,6 +52,8 @@ struct _Result
 
  float ascent;
  float descent;
+ float ascentOn;
+ float descentOn;
  
  uint32_t  queued;              /*+ The position of this result in the queue. +*/
 };

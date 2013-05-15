@@ -161,7 +161,7 @@ void FreeSegmentList(SegmentsX *segmentsx,int keep)
   distance_t distance The distance between the nodes (or just the flags).
   ++++++++++++++++++++++++++++++++++++++*/
 
-void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,distance_t distance, float ascent, float descent)
+void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,distance_t distance, float ascent, float descent, float ascentOn, float descentOn)
 {
  SegmentX segmentx;
 
@@ -184,6 +184,8 @@ void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,
  segmentx.distance=distance;
  segmentx.ascent=ascent;
  segmentx.descent=descent;
+ segmentx.ascentOn=ascentOn;
+ segmentx.descentOn=descentOn;
 
  WriteFile(segmentsx->fd,&segmentx,sizeof(SegmentX));
 
@@ -719,12 +721,23 @@ void MeasureSegments(SegmentsX *segmentsx,NodesX *nodesx,WaysX *waysx)
     
     ad = srtmGetAscentDescent(
             radians_to_degrees(latlong_to_radians(nodex1->latitude)), radians_to_degrees(latlong_to_radians(nodex1->longitude)),
-            radians_to_degrees(latlong_to_radians(nodex2->latitude)), radians_to_degrees(latlong_to_radians(nodex2->longitude)));
+            radians_to_degrees(latlong_to_radians(nodex2->latitude)), radians_to_degrees(latlong_to_radians(nodex2->longitude)),
+            (int)DISTANCE(segmentx.distance));
 
     segmentx.ascent = ad.ascent;
     segmentx.descent = ad.descent;
+    segmentx.ascentOn = ad.ascentOn;
+    segmentx.descentOn = ad.descentOn;
     
-    fprintf(stderr, "measure: id%d node(%u,%u) ad(%.1f,%.1f)\n", index, node1, node2, ad.ascent, ad.descent);
+    fprintf(stderr, "measure%d: ", index);
+    //fprintf(stderr, "node(%u,%u) ", node1, node2);
+    //fprintf(stderr, "node(%0.5f,%0.5f) (%0.5f,%0.5f) ", radians_to_degrees(latlong_to_radians(nodex1->latitude)), radians_to_degrees(latlong_to_radians(nodex1->longitude)),        radians_to_degrees(latlong_to_radians(nodex2->latitude)), radians_to_degrees(latlong_to_radians(nodex2->longitude)));
+
+    fprintf(stderr, "dist(%d) ", DISTANCE(segmentx.distance));
+    fprintf(stderr, "ad(%.1f,%.1f)\n", ad.ascent, ad.descent);
+    fprintf(stderr, "adon(%.1f,%.1f)\n", ad.ascentOn, ad.descentOn);
+    
+                
     
     /* Write the modified segment */
 
@@ -1186,6 +1199,8 @@ void SaveSegmentList(SegmentsX *segmentsx,const char *filename)
     segment.distance=segmentx.distance;
     segment.ascent  =segmentx.ascent;
     segment.descent =segmentx.descent;
+    segment.ascentOn=segmentx.ascentOn;
+    segment.descentOn=segmentx.descentOn;
 
     if(IsSuperSegment(&segment))
        super_number++;

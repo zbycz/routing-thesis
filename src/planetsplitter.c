@@ -505,23 +505,23 @@ if(!option_process_only)
  SortTurnRelationListGeographically(Relations,Nodes,Segments);
 
  
- 
- 
- SegmentsX * segmentsx = Segments;
- SegmentX segmentx;
- int index=0;
- /* Open the file read-only */
- segmentsx->fd=ReOpenFile(segmentsx->filename_tmp);
- /* Read the on-disk image */
- while(!ReadFile(segmentsx->fd,&segmentx,sizeof(SegmentX)))
-   {
-    fprintf(stderr, "read: id%d node(%u,%u) ad(%.1f,%.1f)\n", index, segmentx.node1, segmentx.node2, segmentx.ascent, segmentx.descent);
-
-     index++;
-   }
- /* Close the file */
- segmentsx->fd=CloseFile(segmentsx->fd);
- /* Print the final message */
+// 
+// 
+// SegmentsX * segmentsx = Segments;
+// SegmentX segmentx;
+// int index=0;
+// /* Open the file read-only */
+// segmentsx->fd=ReOpenFile(segmentsx->filename_tmp);
+// /* Read the on-disk image */
+// while(!ReadFile(segmentsx->fd,&segmentx,sizeof(SegmentX)))
+//   {
+//    fprintf(stderr, "read: id%d node(%u,%u) ad(%.1f,%.1f)\n", index, segmentx.node1, segmentx.node2, segmentx.ascent, segmentx.descent);
+//
+//     index++;
+//   }
+// /* Close the file */
+// segmentsx->fd=CloseFile(segmentsx->fd);
+// /* Print the final message */
 
  
  
