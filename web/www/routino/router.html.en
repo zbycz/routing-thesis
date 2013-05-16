@@ -249,10 +249,15 @@
             <tr><td>Weight:     <td><input name="restrict-weight" type="text" size=3 onchange="formSetRestriction('weight')"><td>tonnes
             <tr><td>Height:     <td><input name="restrict-height" type="text" size=3 onchange="formSetRestriction('height')"><td>metres
             <tr><td>Width:      <td><input name="restrict-width"  type="text" size=3 onchange="formSetRestriction('width' )"><td>metres
-            <tr><td>Length:     <td><input name="restrict-length" type="text" size=3 onchange="formSetRestriction('length')"><td>metres
+            <!--<tr><td>Length:     <td><input name="restrict-length" type="text" size=3 onchange="formSetRestriction('length')"><td>metres -->
           </table>
         </div>
       </div>
+
+
+          <table>
+            <tr><td>Hills:     <td><input name="restrict-length" type="text" size=3 onchange="formSetRestriction('length')"><td>(0=no /  >0 = speed at 10% hill / 100 = precomputed model)
+          </table>
 
       <div class="hideshow_box">
         <span class="hideshow_title">Find</span>

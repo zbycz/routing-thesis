@@ -50,6 +50,7 @@ $query=new CGI;
               "width"           => "[0-9.]+",
               "length"          => "[0-9.]+",
               "length"          => "[0-9.]+",
+              "hills"           => "[0-9.]+",
 
               "language"        => "[-a-zA-Z]+",
               "type"            => "(shortest|quickest)",

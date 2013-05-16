@@ -738,13 +738,13 @@ void MeasureSegments(SegmentsX *segmentsx,NodesX *nodesx,WaysX *waysx)
     segmentx.ascentOn = ad.ascentOn;
     segmentx.descentOn = ad.descentOn;
     
-    fprintf(stderr, "measure%d: ", index);
-    //fprintf(stderr, "node(%u,%u) ", node1, node2);
-    //fprintf(stderr, "node(%0.5f,%0.5f) (%0.5f,%0.5f) ", radians_to_degrees(latlong_to_radians(nodex1->latitude)), radians_to_degrees(latlong_to_radians(nodex1->longitude)),        radians_to_degrees(latlong_to_radians(nodex2->latitude)), radians_to_degrees(latlong_to_radians(nodex2->longitude)));
+    //fprintf(stderr, "measure%d: ", index);
+    ////fprintf(stderr, "node(%u,%u) ", node1, node2);
+    ////fprintf(stderr, "node(%0.5f,%0.5f) (%0.5f,%0.5f) ", radians_to_degrees(latlong_to_radians(nodex1->latitude)), radians_to_degrees(latlong_to_radians(nodex1->longitude)),        radians_to_degrees(latlong_to_radians(nodex2->latitude)), radians_to_degrees(latlong_to_radians(nodex2->longitude)));
 
-    fprintf(stderr, "dist(%d) ", DISTANCE(segmentx.distance));
-    fprintf(stderr, "ad(%.1f,%.1f)\n", ad.ascent, ad.descent);
-    fprintf(stderr, "adon(%.1f,%.1f)\n", ad.ascentOn, ad.descentOn);
+    //fprintf(stderr, "dist(%d) ", DISTANCE(segmentx.distance));
+    //fprintf(stderr, "ad(%.1f,%.1f)\n", ad.ascent, ad.descent);
+    //fprintf(stderr, "adon(%.1f,%.1f)\n", ad.ascentOn, ad.descentOn);
     
                 
     

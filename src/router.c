@@ -347,8 +347,9 @@ int main(int argc,char** argv)
        profile->height=metres_to_height(atof(&argv[arg][9]));
     else if(!strncmp(argv[arg],"--width=",8))
        profile->width=metres_to_width(atof(&argv[arg][8]));
-    else if(!strncmp(argv[arg],"--length=",9))
-       profile->length=metres_to_length(atof(&argv[arg][9]));
+    else if(!strncmp(argv[arg],"--length=",9)) //hills supplied via length parameter
+       hills=atof(&argv[arg][9]);
+       //profile->length=metres_to_length(atof(&argv[arg][9]));
     else if(!strncmp(argv[arg],"--hills=",8))
        hills=atof(&argv[arg][8]);
     else

@@ -248,7 +248,7 @@ duration_t Duration(Segment *segmentp,Way *wayp,Profile *profile)
  printf("hill: %0.2f speed %d ", percent, final);
 
  //special output for precomputed speeds
- if(hills < 0){
+ if(hills >= 100){
      if(percent > 2) final = 15;
      if(percent > 4) final = 10;
      if(percent > 7) final = 8;
