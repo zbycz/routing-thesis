@@ -46,6 +46,11 @@ struct _SegmentX
  way_t      way;                /*+ The id of the way; initially the OSM value, later the WayX index. +*/
 
  distance_t distance;           /*+ The distance between the nodes. +*/
+ 
+ float      ascent;
+ float      descent;
+ float      ascentOn;
+ float      descentOn;
 };
 
 
@@ -85,7 +90,7 @@ struct _SegmentsX
 SegmentsX *NewSegmentList(int append,int readonly);
 void FreeSegmentList(SegmentsX *segmentsx,int keep);
 
-void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,distance_t distance);
+void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,distance_t distance, float ascent, float descent, float ascentOn, float descentOn);
 void FinishSegmentList(SegmentsX *segmentsx);
 
 SegmentX *FirstSegmentX(SegmentsX *segmentsx,index_t nodeindex,int position);

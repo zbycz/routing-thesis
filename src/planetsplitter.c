@@ -504,6 +504,31 @@ if(!option_process_only)
 
  SortTurnRelationListGeographically(Relations,Nodes,Segments);
 
+ 
+// //check if there are bad data somewhere
+// SegmentsX * segmentsx = Segments;
+// SegmentX segmentx;
+// int index=0;
+// /* Open the file read-only */
+// segmentsx->fd=ReOpenFile(segmentsx->filename_tmp);
+// /* Read the on-disk image */
+// while(!ReadFile(segmentsx->fd,&segmentx,sizeof(SegmentX)))
+// {
+//     if(isnan(segmentx.ascent))
+//    fprintf(stderr, "read: id%d sup%d, node(%u,%u) ad(%.1f,%.1f)\n", index, (segmentx.distance&SEGMENT_SUPER != 0), segmentx.node1, segmentx.node2, segmentx.ascent, segmentx.descent);
+//
+//     index++;
+//   }
+// /* Close the file */
+// segmentsx->fd=CloseFile(segmentsx->fd);
+// /* Print the final message */
+
+ 
+ 
+ 
+ 
+ 
+ 
  /* Output the results */
 
  printf("\nWrite Out Database Files\n========================\n\n");

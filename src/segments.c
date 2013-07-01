@@ -219,24 +219,58 @@ duration_t Duration(Segment *segmentp,Way *wayp,Profile *profile)
 {
  speed_t    speed1=wayp->speed;
  speed_t    speed2=profile->speed[HIGHWAY(wayp->type)];
+ int        final;
  distance_t distance=DISTANCE(segmentp->distance);
-
+ 
  if(speed1==0)
    {
     if(speed2==0)
        return(hours_to_duration(10));
     else
-       return distance_speed_to_duration(distance,speed2);
+        final = speed2;
    }
  else /* if(speed1!=0) */
    {
     if(speed2==0)
-       return distance_speed_to_duration(distance,speed1);
+       final = speed1;
     else if(speed1<=speed2)
-       return distance_speed_to_duration(distance,speed1);
+       final = speed1;
     else
-       return distance_speed_to_duration(distance,speed2);
+       final = speed2;
    }
+ 
+ float hills = profile->hills;
+ if(hills == 0 || segmentp->ascentOn == 0)
+   return distance_speed_to_duration(distance, final);
+ 
+ //hill's percentage
+ float    percent = segmentp->ascent/segmentp->ascentOn*100;
+ printf("hill: %0.2f speed %d ", percent, final);
+
+ //special output for precomputed speeds
+ if(hills >= 100){
+     if(percent > 2) final = 15;
+     if(percent > 4) final = 10;
+     if(percent > 7) final = 8;
+     if(percent > 9) final = 6;
+     if(percent > 15) final = 3;
+ }
+ else { //linear slowing ($hills = speed on 10% hill)
+     speed_t maxi = final;
+     final = -((maxi-hills)/10) * percent + maxi;
+     
+     if(final < 3) final = 3;
+ }
+ 
+ 
+ //printf("distance %d, proc %0.2f, ascent %0.1f on %0.1f ", distance, percent, segmentp->ascent, segmentp->ascentOn);
+ //distance = percent * distance;
+ 
+  printf("final %d\n", final);
+
+  
+  
+ return distance_speed_to_duration(distance, final);
 }
 
 

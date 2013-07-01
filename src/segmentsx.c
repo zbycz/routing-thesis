@@ -37,6 +37,8 @@
 #include "logging.h"
 #include "sorting.h"
 
+#include "srtmHgtReader.h"
+
 
 /* Global variables */
 
@@ -159,7 +161,7 @@ void FreeSegmentList(SegmentsX *segmentsx,int keep)
   distance_t distance The distance between the nodes (or just the flags).
   ++++++++++++++++++++++++++++++++++++++*/
 
-void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,distance_t distance)
+void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,distance_t distance, float ascent, float descent, float ascentOn, float descentOn)
 {
  SegmentX segmentx;
 
@@ -173,6 +175,15 @@ void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,
 
     if(distance&(ONEWAY_2TO1|ONEWAY_1TO2))
        distance^=ONEWAY_2TO1|ONEWAY_1TO2;
+    
+    float tmp;
+    tmp=ascent;
+    ascent=descent;
+    descent = tmp;
+    
+    tmp=ascentOn;
+    ascentOn=descentOn;
+    descentOn=ascentOn;
    }
 
  segmentx.node1=node1;
@@ -180,6 +191,10 @@ void AppendSegmentList(SegmentsX *segmentsx,way_t way,node_t node1,node_t node2,
  segmentx.next2=NO_SEGMENT;
  segmentx.way=way;
  segmentx.distance=distance;
+ segmentx.ascent=ascent;
+ segmentx.descent=descent;
+ segmentx.ascentOn=ascentOn;
+ segmentx.descentOn=descentOn;
 
  WriteFile(segmentsx->fd,&segmentx,sizeof(SegmentX));
 
@@ -695,20 +710,44 @@ void MeasureSegments(SegmentsX *segmentsx,NodesX *nodesx,WaysX *waysx)
 
     NodeX *nodex1=LookupNodeX(nodesx,node1,1);
     NodeX *nodex2=LookupNodeX(nodesx,node2,2);
+    
+    TSrtmAscentDescent ad;
 
     /* Replace the node and way ids with their indexes */
 
     segmentx.node1=node1;
     segmentx.node2=node2;
     segmentx.way  =way;
-
+    
     SetBit(segmentsx->usedway,segmentx.way);
 
     /* Set the distance but keep the other flags except for area */
 
     segmentx.distance=DISTANCE(DistanceX(nodex1,nodex2))|DISTFLAG(segmentx.distance);
     segmentx.distance&=~SEGMENT_AREA;
+    
+    /* Compute the ascent descent */
+    
+    ad = srtmGetAscentDescent(
+            radians_to_degrees(latlong_to_radians(nodex1->latitude)), radians_to_degrees(latlong_to_radians(nodex1->longitude)),
+            radians_to_degrees(latlong_to_radians(nodex2->latitude)), radians_to_degrees(latlong_to_radians(nodex2->longitude)),
+            (int)DISTANCE(segmentx.distance));
 
+    segmentx.ascent = ad.ascent;
+    segmentx.descent = ad.descent;
+    segmentx.ascentOn = ad.ascentOn;
+    segmentx.descentOn = ad.descentOn;
+    
+    //fprintf(stderr, "measure%d: ", index);
+    ////fprintf(stderr, "node(%u,%u) ", node1, node2);
+    ////fprintf(stderr, "node(%0.5f,%0.5f) (%0.5f,%0.5f) ", radians_to_degrees(latlong_to_radians(nodex1->latitude)), radians_to_degrees(latlong_to_radians(nodex1->longitude)),        radians_to_degrees(latlong_to_radians(nodex2->latitude)), radians_to_degrees(latlong_to_radians(nodex2->longitude)));
+
+    //fprintf(stderr, "dist(%d) ", DISTANCE(segmentx.distance));
+    //fprintf(stderr, "ad(%.1f,%.1f)\n", ad.ascent, ad.descent);
+    //fprintf(stderr, "adon(%.1f,%.1f)\n", ad.ascentOn, ad.descentOn);
+    
+                
+    
     /* Write the modified segment */
 
     WriteFile(fd,&segmentx,sizeof(SegmentX));
@@ -747,7 +786,7 @@ void MeasureSegments(SegmentsX *segmentsx,NodesX *nodesx,WaysX *waysx)
 
 
 /*++++++++++++++++++++++++++++++++++++++
-  Index the segments by creating the firstnode index and filling in the segment next2 parameter.
+  Index the segments by creating the firstnode index and filling in the segment next2 parameter (like linked list)
 
   SegmentsX *segmentsx The set of segments to modify.
 
@@ -1167,6 +1206,10 @@ void SaveSegmentList(SegmentsX *segmentsx,const char *filename)
     segment.next2   =segmentx.next2;
     segment.way     =segmentx.way;
     segment.distance=segmentx.distance;
+    segment.ascent  =segmentx.ascent;
+    segment.descent =segmentx.descent;
+    segment.ascentOn=segmentx.ascentOn;
+    segment.descentOn=segmentx.descentOn;
 
     if(IsSuperSegment(&segment))
        super_number++;

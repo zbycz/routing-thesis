@@ -28,7 +28,7 @@ AddHandler cgi-script .cgi
 # the "AllowOverride none" option is set in the main Apache configuration file
 # then the entry in the .htaccess file will not work.
 
-#Options +ExecCGI
+Options +ExecCGI
 
 # The CGI scripts that are used by Routino also call some other Perl scripts, to
 # stop these scripts from being seen by web users they can be denied by the
