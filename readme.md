@@ -1,6 +1,6 @@
 # Bachelor thesis - elevation minimization for bicycle routing
 
-[PDF](BP_Zbytovsky_Pavel_2013.pdf)
+[raw PDF](http://rawgithub.com/zbycz/routing-thesis/master/BP_Zbytovsky_Pavel_2013.pdf)
 
 
 
