@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gpx creator="mapy.cz" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<trk><name>Start -&gt; End</name>
+<trkseg>
+<trkpt lat="50.092300" lon="14.322377"><name>001 Start</name></trkpt>
+<trkpt lat="50.092300" lon="14.322377"></trkpt>
+<trkpt lat="50.092444" lon="14.322291"><name>002 Praha 6</name></trkpt>
+<trkpt lat="50.092525" lon="14.322374"></trkpt>
+<trkpt lat="50.092571" lon="14.322499"></trkpt>
+<trkpt lat="50.092581" lon="14.322653"></trkpt>
+<trkpt lat="50.092559" lon="14.323646"></trkpt>
+<trkpt lat="50.092561" lon="14.323911"></trkpt>
+<trkpt lat="50.092571" lon="14.324135"></trkpt>
+<trkpt lat="50.092705" lon="14.324021"><name>003 Praha 6</name></trkpt>
+<trkpt lat="50.092702" lon="14.324958"></trkpt>
+<trkpt lat="50.092705" lon="14.325573"></trkpt>
+<trkpt lat="50.092715" lon="14.325699"></trkpt>
+<trkpt lat="50.092716" lon="14.325811"></trkpt>
+<trkpt lat="50.092726" lon="14.326090"></trkpt>
+<trkpt lat="50.092756" lon="14.326593"></trkpt>
+<trkpt lat="50.092834" lon="14.327585"></trkpt>
+<trkpt lat="50.092891" lon="14.328185"></trkpt>
+<trkpt lat="50.092996" lon="14.329078"></trkpt>
+<trkpt lat="50.093034" lon="14.329427"></trkpt>
+<trkpt lat="50.093043" lon="14.329539"></trkpt>
+<trkpt lat="50.093062" lon="14.329664"></trkpt>
+<trkpt lat="50.093119" lon="14.330153"></trkpt>
+<trkpt lat="50.093194" lon="14.330655"></trkpt>
+<trkpt lat="50.093421" lon="14.332721"></trkpt>
+<trkpt lat="50.093494" lon="14.332888"></trkpt>
+<trkpt lat="50.093514" lon="14.333167"></trkpt>
+<trkpt lat="50.093821" lon="14.334925"></trkpt>
+<trkpt lat="50.093866" lon="14.335036"></trkpt>
+<trkpt lat="50.093840" lon="14.335232"></trkpt>
+<trkpt lat="50.094026" lon="14.336292"></trkpt>
+<trkpt lat="50.094211" lon="14.337114"></trkpt>
+<trkpt lat="50.095939" lon="14.346919"></trkpt>
+<trkpt lat="50.095932" lon="14.347157"></trkpt>
+<trkpt lat="50.096077" lon="14.347435"></trkpt>
+<trkpt lat="50.097349" lon="14.354464"></trkpt>
+<trkpt lat="50.097305" lon="14.354745"></trkpt>
+<trkpt lat="50.097497" lon="14.355231"></trkpt>
+<trkpt lat="50.098146" lon="14.358760"></trkpt>
+<trkpt lat="50.098417" lon="14.360602"></trkpt>
+<trkpt lat="50.098588" lon="14.362236"></trkpt>
+<trkpt lat="50.098508" lon="14.362405"></trkpt>
+<trkpt lat="50.098617" lon="14.362599"></trkpt>
+<trkpt lat="50.098764" lon="14.364792"></trkpt>
+<trkpt lat="50.098711" lon="14.365058"><name>004 Praha 6</name></trkpt>
+<trkpt lat="50.098567" lon="14.365074"></trkpt>
+<trkpt lat="50.098405" lon="14.365063"></trkpt>
+<trkpt lat="50.098316" lon="14.365064"></trkpt>
+<trkpt lat="50.098234" lon="14.365023"></trkpt>
+<trkpt lat="50.098144" lon="14.364968"></trkpt>
+<trkpt lat="50.098081" lon="14.364899"></trkpt>
+<trkpt lat="50.097737" lon="14.364470"></trkpt>
+<trkpt lat="50.097493" lon="14.364250"></trkpt>
+<trkpt lat="50.097393" lon="14.364181"><name>005 Liberijska/Kladenska</name></trkpt>
+<trkpt lat="50.098129" lon="14.367094"><name>006 Praha 6</name></trkpt>
+<trkpt lat="50.098094" lon="14.367234"></trkpt>
+<trkpt lat="50.098049" lon="14.367332"></trkpt>
+<trkpt lat="50.097987" lon="14.367445"></trkpt>
+<trkpt lat="50.097916" lon="14.367572"></trkpt>
+<trkpt lat="50.097862" lon="14.367698"></trkpt>
+<trkpt lat="50.097801" lon="14.367923"></trkpt>
+<trkpt lat="50.097588" lon="14.368541"><name>007 Praha 6</name></trkpt>
+<trkpt lat="50.097516" lon="14.368598"></trkpt>
+<trkpt lat="50.097454" lon="14.368668"></trkpt>
+<trkpt lat="50.097382" lon="14.368781"></trkpt>
+<trkpt lat="50.097356" lon="14.368838"><name>008 Zavadilova</name></trkpt>
+<trkpt lat="50.097312" lon="14.368964"></trkpt>
+<trkpt lat="50.097276" lon="14.369090"></trkpt>
+<trkpt lat="50.097268" lon="14.369230"></trkpt>
+<trkpt lat="50.097362" lon="14.369900"><name>009 Zavadilova/U Dejvickeho rybnicku</name></trkpt>
+<trkpt lat="50.097272" lon="14.369957"></trkpt>
+<trkpt lat="50.097191" lon="14.370028"></trkpt>
+<trkpt lat="50.097120" lon="14.370099"></trkpt>
+<trkpt lat="50.097066" lon="14.370184"></trkpt>
+<trkpt lat="50.097013" lon="14.370282"></trkpt>
+<trkpt lat="50.096995" lon="14.370310"></trkpt>
+<trkpt lat="50.096960" lon="14.370423"></trkpt>
+<trkpt lat="50.096933" lon="14.370549"></trkpt>
+<trkpt lat="50.096916" lon="14.370689"></trkpt>
+<trkpt lat="50.096908" lon="14.370801"></trkpt>
+<trkpt lat="50.096909" lon="14.370941"></trkpt>
+<trkpt lat="50.096909" lon="14.371066"></trkpt>
+<trkpt lat="50.096910" lon="14.371178"></trkpt>
+<trkpt lat="50.096910" lon="14.371304"></trkpt>
+<trkpt lat="50.096912" lon="14.371542"></trkpt>
+<trkpt lat="50.096921" lon="14.371668"></trkpt>
+<trkpt lat="50.096925" lon="14.372283"><name>010 U Dejvickeho rybnicku/Starodejvicka</name></trkpt>
+<trkpt lat="50.096592" lon="14.372315"></trkpt>
+<trkpt lat="50.096457" lon="14.372345"></trkpt>
+<trkpt lat="50.096376" lon="14.372346"></trkpt>
+<trkpt lat="50.096296" lon="14.372375"></trkpt>
+<trkpt lat="50.096224" lon="14.372390"></trkpt>
+<trkpt lat="50.096152" lon="14.372433"></trkpt>
+<trkpt lat="50.096080" lon="14.372475"></trkpt>
+<trkpt lat="50.096009" lon="14.372532"></trkpt>
+<trkpt lat="50.095937" lon="14.372589"></trkpt>
+<trkpt lat="50.095875" lon="14.372660"></trkpt>
+<trkpt lat="50.095785" lon="14.372801"></trkpt>
+<trkpt lat="50.095714" lon="14.372942"></trkpt>
+<trkpt lat="50.095643" lon="14.373082"></trkpt>
+<trkpt lat="50.095572" lon="14.373237"></trkpt>
+<trkpt lat="50.095457" lon="14.373574"></trkpt>
+<trkpt lat="50.095369" lon="14.373925"></trkpt>
+<trkpt lat="50.095255" lon="14.374500"></trkpt>
+<trkpt lat="50.095160" lon="14.375340"></trkpt>
+<trkpt lat="50.095152" lon="14.375452"></trkpt>
+<trkpt lat="50.095153" lon="14.375563"></trkpt>
+<trkpt lat="50.095136" lon="14.375787"></trkpt>
+<trkpt lat="50.095127" lon="14.375899"></trkpt>
+<trkpt lat="50.095119" lon="14.376011"></trkpt>
+<trkpt lat="50.095111" lon="14.376249"></trkpt>
+<trkpt lat="50.095103" lon="14.376375"></trkpt>
+<trkpt lat="50.095096" lon="14.376725"></trkpt>
+<trkpt lat="50.095096" lon="14.376808"></trkpt>
+<trkpt lat="50.095086" lon="14.378179"></trkpt>
+<trkpt lat="50.095083" lon="14.379395"></trkpt>
+<trkpt lat="50.095079" lon="14.380220"></trkpt>
+<trkpt lat="50.095078" lon="14.381730"></trkpt>
+<trkpt lat="50.095082" lon="14.382555"></trkpt>
+<trkpt lat="50.095080" lon="14.383799"></trkpt>
+<trkpt lat="50.095086" lon="14.385071"></trkpt>
+<trkpt lat="50.095102" lon="14.386288"></trkpt>
+<trkpt lat="50.095060" lon="14.386847"></trkpt>
+<trkpt lat="50.094939" lon="14.387828"></trkpt>
+<trkpt lat="50.094601" lon="14.390265"></trkpt>
+<trkpt lat="50.094602" lon="14.390432"></trkpt>
+<trkpt lat="50.094630" lon="14.390600"></trkpt>
+<trkpt lat="50.094675" lon="14.390683"><name>011 Na Orechovce/Pevnostni</name></trkpt>
+<trkpt lat="50.094649" lon="14.390739"></trkpt>
+<trkpt lat="50.094604" lon="14.390880"></trkpt>
+<trkpt lat="50.094587" lon="14.391020"></trkpt>
+<trkpt lat="50.094579" lon="14.391174"></trkpt>
+<trkpt lat="50.094589" lon="14.391341"></trkpt>
+<trkpt lat="50.094627" lon="14.391690"></trkpt>
+<trkpt lat="50.094601" lon="14.391844"></trkpt>
+<trkpt lat="50.094556" lon="14.391929"><name>012 Pevnostni/U Brusnice</name></trkpt>
+<trkpt lat="50.094448" lon="14.392000"></trkpt>
+<trkpt lat="50.092939" lon="14.392243"><name>013 U Brusnice/Jeleni</name></trkpt>
+<trkpt lat="50.093402" lon="14.396515"></trkpt>
+<trkpt lat="50.093411" lon="14.396655"></trkpt>
+<trkpt lat="50.093422" lon="14.396906"></trkpt>
+<trkpt lat="50.093422" lon="14.397018"></trkpt>
+<trkpt lat="50.093405" lon="14.397172"></trkpt>
+<trkpt lat="50.093362" lon="14.397466"></trkpt>
+<trkpt lat="50.093265" lon="14.397887"></trkpt>
+<trkpt lat="50.093248" lon="14.398013"></trkpt>
+<trkpt lat="50.093221" lon="14.398139"></trkpt>
+<trkpt lat="50.093195" lon="14.398335"><name>014 Praha 1</name></trkpt>
+<trkpt lat="50.093656" lon="14.402118"></trkpt>
+<trkpt lat="50.093674" lon="14.402244"></trkpt>
+<trkpt lat="50.093693" lon="14.402356"></trkpt>
+<trkpt lat="50.093711" lon="14.402481"></trkpt>
+<trkpt lat="50.093721" lon="14.402593"></trkpt>
+<trkpt lat="50.093739" lon="14.402704"></trkpt>
+<trkpt lat="50.093898" lon="14.403835"></trkpt>
+<trkpt lat="50.094029" lon="14.404770"></trkpt>
+<trkpt lat="50.094057" lon="14.405049"></trkpt>
+<trkpt lat="50.094058" lon="14.405203"></trkpt>
+<trkpt lat="50.094077" lon="14.405329"></trkpt>
+<trkpt lat="50.094123" lon="14.405594"></trkpt>
+<trkpt lat="50.094206" lon="14.405928"></trkpt>
+<trkpt lat="50.094018" lon="14.406098"></trkpt>
+<trkpt lat="50.094136" lon="14.406432"></trkpt>
+<trkpt lat="50.094210" lon="14.406683"></trkpt>
+<trkpt lat="50.094246" lon="14.406850"></trkpt>
+<trkpt lat="50.094284" lon="14.407074"></trkpt>
+<trkpt lat="50.094293" lon="14.407185"></trkpt>
+<trkpt lat="50.094303" lon="14.407339"></trkpt>
+<trkpt lat="50.094295" lon="14.407479"></trkpt>
+<trkpt lat="50.094277" lon="14.407605"></trkpt>
+<trkpt lat="50.094314" lon="14.407716"></trkpt>
+<trkpt lat="50.094404" lon="14.407771"></trkpt>
+<trkpt lat="50.094467" lon="14.407854"></trkpt>
+<trkpt lat="50.094513" lon="14.407966"></trkpt>
+<trkpt lat="50.094550" lon="14.408119"></trkpt>
+<trkpt lat="50.094605" lon="14.408398"></trkpt>
+<trkpt lat="50.094615" lon="14.408510"></trkpt>
+<trkpt lat="50.094615" lon="14.408635"></trkpt>
+<trkpt lat="50.094607" lon="14.408789"></trkpt>
+<trkpt lat="50.094590" lon="14.408943"></trkpt>
+<trkpt lat="50.094536" lon="14.409056"></trkpt>
+<trkpt lat="50.094465" lon="14.409155"></trkpt>
+<trkpt lat="50.094475" lon="14.409364"></trkpt>
+<trkpt lat="50.094495" lon="14.409714"></trkpt>
+<trkpt lat="50.094514" lon="14.410021"></trkpt>
+<trkpt lat="50.094515" lon="14.410147"></trkpt>
+<trkpt lat="50.094516" lon="14.410300"></trkpt>
+<trkpt lat="50.094525" lon="14.410426"></trkpt>
+<trkpt lat="50.094535" lon="14.410580"></trkpt>
+<trkpt lat="50.094545" lon="14.410706"></trkpt>
+<trkpt lat="50.094572" lon="14.410831"></trkpt>
+<trkpt lat="50.094636" lon="14.410886"></trkpt>
+<trkpt lat="50.094540" lon="14.411503"></trkpt>
+<trkpt lat="50.094397" lon="14.411616"></trkpt>
+<trkpt lat="50.094106" lon="14.412864"></trkpt>
+<trkpt lat="50.094071" lon="14.413032"></trkpt>
+<trkpt lat="50.094008" lon="14.413089"></trkpt>
+<trkpt lat="50.093946" lon="14.413160"></trkpt>
+<trkpt lat="50.093892" lon="14.413286"></trkpt>
+<trkpt lat="50.093831" lon="14.413664"></trkpt>
+<trkpt lat="50.093796" lon="14.413790"></trkpt>
+<trkpt lat="50.093743" lon="14.413917"></trkpt>
+<trkpt lat="50.093716" lon="14.414057"></trkpt>
+<trkpt lat="50.093699" lon="14.414183"></trkpt>
+<trkpt lat="50.093682" lon="14.414323"></trkpt>
+<trkpt lat="50.093629" lon="14.414603"></trkpt>
+<trkpt lat="50.093648" lon="14.414855"></trkpt>
+<trkpt lat="50.093889" lon="14.416152"></trkpt>
+<trkpt lat="50.093891" lon="14.416516"><name>015 Praha 1</name></trkpt>
+<trkpt lat="50.092134" lon="14.417655"><name>016 Cechuv most/namesti Curieovych</name></trkpt>
+<trkpt lat="50.091587" lon="14.418039"></trkpt>
+<trkpt lat="50.090735" lon="14.418581"></trkpt>
+<trkpt lat="50.090009" lon="14.419037"></trkpt>
+<trkpt lat="50.089435" lon="14.419408"></trkpt>
+<trkpt lat="50.088924" lon="14.419749"></trkpt>
+<trkpt lat="50.088727" lon="14.419877"></trkpt>
+<trkpt lat="50.087813" lon="14.420476"></trkpt>
+<trkpt lat="50.087015" lon="14.421100"></trkpt>
+<trkpt lat="50.087052" lon="14.421184"><name>017 Staromestske namesti/Zelezna</name></trkpt>
+<trkpt lat="50.086757" lon="14.421662"></trkpt>
+<trkpt lat="50.086240" lon="14.422507"></trkpt>
+<trkpt lat="50.086142" lon="14.422648"></trkpt>
+<trkpt lat="50.086043" lon="14.422747"></trkpt>
+<trkpt lat="50.085819" lon="14.422988"></trkpt>
+<trkpt lat="50.085605" lon="14.423228"><name>018 Zelezna/Rytirska</name></trkpt>
+<trkpt lat="50.085197" lon="14.422632"></trkpt>
+<trkpt lat="50.084907" lon="14.422188"><name>019 Rytirska/Na Mustku</name></trkpt>
+<trkpt lat="50.084836" lon="14.422315"><name>020 Na Mustku</name></trkpt>
+<trkpt lat="50.084461" lon="14.423018"></trkpt>
+<trkpt lat="50.084248" lon="14.423412"><name>021 Na Mustku/Vaclavske namesti</name></trkpt>
+<trkpt lat="50.084069" lon="14.423610"><name>022 Vaclavske namesti</name></trkpt>
+<trkpt lat="50.083988" lon="14.423653"></trkpt>
+<trkpt lat="50.083550" lon="14.424301"></trkpt>
+<trkpt lat="50.082702" lon="14.425499"></trkpt>
+<trkpt lat="50.082309" lon="14.426049"></trkpt>
+<trkpt lat="50.081442" lon="14.427178"></trkpt>
+<trkpt lat="50.080495" lon="14.428531"></trkpt>
+<trkpt lat="50.080156" lon="14.428982"></trkpt>
+<trkpt lat="50.079495" lon="14.429898"></trkpt>
+<trkpt lat="50.079513" lon="14.430024"></trkpt>
+<trkpt lat="50.079568" lon="14.430121"></trkpt>
+<trkpt lat="50.079658" lon="14.430148"></trkpt>
+<trkpt lat="50.079721" lon="14.430105"><name>023 Praha 1</name></trkpt>
+<trkpt lat="50.079830" lon="14.430411"></trkpt>
+<trkpt lat="50.079767" lon="14.430440"></trkpt>
+<trkpt lat="50.079705" lon="14.430539"></trkpt>
+<trkpt lat="50.079624" lon="14.430651"></trkpt>
+<trkpt lat="50.079580" lon="14.430750"></trkpt>
+<trkpt lat="50.079545" lon="14.430862"></trkpt>
+<trkpt lat="50.079456" lon="14.431240"></trkpt>
+<trkpt lat="50.079412" lon="14.431395"></trkpt>
+<trkpt lat="50.079359" lon="14.431507"></trkpt>
+<trkpt lat="50.078939" lon="14.432183"></trkpt>
+<trkpt lat="50.078779" lon="14.432520"></trkpt>
+<trkpt lat="50.079024" lon="14.432979"></trkpt>
+<trkpt lat="50.078910" lon="14.433511"></trkpt>
+<trkpt lat="50.078956" lon="14.433692"><name>024 Praha 2</name></trkpt>
+<trkpt lat="50.078567" lon="14.435039"></trkpt>
+<trkpt lat="50.078069" lon="14.436260"></trkpt>
+<trkpt lat="50.077726" lon="14.437816"></trkpt>
+<trkpt lat="50.077446" lon="14.439412"></trkpt>
+<trkpt lat="50.077218" lon="14.440785"></trkpt>
+<trkpt lat="50.077026" lon="14.442017"></trkpt>
+<trkpt lat="50.077011" lon="14.442632"></trkpt>
+<trkpt lat="50.076999" lon="14.443890"></trkpt>
+<trkpt lat="50.077073" lon="14.446139"></trkpt>
+<trkpt lat="50.077150" lon="14.449073"></trkpt>
+<trkpt lat="50.077170" lon="14.449478"><name>025 End</name></trkpt>
+</trkseg>
+</trk></gpx>

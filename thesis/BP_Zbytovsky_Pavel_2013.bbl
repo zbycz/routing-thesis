@@ -1,0 +1,118 @@
+\begin{thebibliography}{10}
+\providecommand{\biburl}[1]{\url{#1}}
+\providecommand{\urlprefix}{Dostupn{\' e} z: }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\selectlanguage}[1]{\relax}
+\providecommand{\eprint}[2][]{\biburl{#2}}
+
+\bibitem{routino-doc}
+Bishop, A.~M.: \emph{Dokumentace Routina}. Cit. 2013-05-06.
+\urlprefix\biburl{http://routino.org/documentation/}
+
+\bibitem{routino}
+Bishop, A.~M.: Routino.
+\urlprefix\biburl{http://www.routino.org}
+
+\bibitem{brouter}
+Brenschede, D.~A.: BRouter.
+\urlprefix\biburl{http://www.brensche.de/brouter}
+
+\bibitem{dem-srtm-cgiar}
+{CGIAR CSI}: SRTM 90m Digital Elevation Data. Cit. 2013-05-10.
+\urlprefix\biburl{http://srtm.csi.cgiar.org/}
+
+\bibitem{cloudmade}
+Cloudmade maps.
+\urlprefix\biburl{http://maps.cloudmade.com}
+
+\bibitem{dijkstra}
+Dijkstra, E.~W.: A note on two problems in connexion with graphs.
+  \emph{Numerische Mathematik 1}, 1959: str. 269–271.
+
+\bibitem{dem-google}
+{Google inc.}: Elevation API. Cit. 2013-05-10.
+\urlprefix\biburl{https://developers.google.com/maps/documentation/elevation/}
+
+\bibitem{yours}
+Lambertus: YOURS routing service.
+\urlprefix\biburl{http://wiki.openstreetmap.org/wiki/YOURS}
+
+\bibitem{osrm}
+Luxen, D.: Project OSRM.
+\urlprefix\biburl{http://www.project-osrm.org}
+
+\bibitem{mapquest}
+Mapquest maps.
+\urlprefix\biburl{http://maps.cloudmade.com}
+
+\bibitem{dem-aster}
+NASA: ASTER GDEM portál. Cit. 2013-05-10.
+\urlprefix\biburl{http://asterweb.jpl.nasa.gov/gdem.asp}
+
+\bibitem{dem-srtm}
+NASA: SRTM portál. Cit. 2013-05-10.
+\urlprefix\biburl{http://www2.jpl.nasa.gov/srtm/}
+
+\bibitem{srtm-manual}
+NASA/NIMA: \emph{SRTM Documentation}. Cit. 2013-05-10.
+\urlprefix\biburl{http://dds.cr.usgs.gov/srtm/version1/Documentation/SRTM_Topo.txt}
+
+\bibitem{openrouteservice}
+Neis, P.: OpenRouteService.
+\urlprefix\biburl{http://www.openrouteservice.org}
+
+\bibitem{cyclestreets}
+Nuttall, S.; Lucas-Smith, M.: Cycle Streets UK.
+\urlprefix\biburl{http://www.cyclestreets.net}
+
+\bibitem{cyclestreets-article}
+Nuttall, S.; Lucas-Smith, M.: Open sourcing effort. 2012, 9.1.2012, cit.
+  2013-05-04.
+\urlprefix\biburl{http://www.cyclestreets.net/blog/2012/01/09/open-sourcing-effort/}
+
+\bibitem{osmwiki-routers}
+{OpenStreetMap Wiki}: Routing/online routers. 2013, [Online; accessed
+  8-May-2013].
+\urlprefix\biburl{http://wiki.openstreetmap.org/w/index.php?title=Routing/online_routers&oldid=887419}
+
+\bibitem{grassgis}
+OSGeo: Geographic Resources Analysis Support System GIS. Cit. 2013-05-10.
+\urlprefix\biburl{http://grass.osgeo.org/}
+
+\bibitem{openlayers}
+OSGeo: OpenLayers JS mapping library. Cit. 2013-05-10.
+\urlprefix\biburl{http://openlayers.org/}
+
+\bibitem{osola}
+Osola, B.: SRTM \& Ordnance Survey Elevation Data in PHP. Cit. 2013-04-20.
+\urlprefix\biburl{http://www.osola.org.uk/elevations/}
+
+\bibitem{gosmore}
+Roets, N.: Gosmore navigator.
+\urlprefix\biburl{http://wiki.osm.org/Gosmore}
+
+\bibitem{osrm-article}
+Sanders, P.; Schultes, D.: Engineering Fast Route Planning Algorithms.
+  \emph{6th Workshop on Experimental Algorithms}, 2007.
+\urlprefix\biburl{http://algo2.iti.kit.edu/1040.php}
+
+\bibitem{astar}
+Sanders, P.; Schultes, D.: Engineering fast route planning algorithms. In
+  \emph{Proceedings of the 6th international conference on Experimental
+  algorithms}, WEA'07, Berlin, Heidelberg: Springer-Verlag, 2007, ISBN
+  978-3-540-72844-3, s. 23--36.
+\urlprefix\biburl{http://dl.acm.org/citation.cfm?id=1768570.1768573}
+
+\bibitem{bbbike}
+Schneider, W.; Rezić, S.: BBBike.
+\urlprefix\biburl{http://www.bbbike.org}
+
+\bibitem{libtiff}
+Warmerdam, F.; Kiselev, A.; Welles, M.; aj.: LibTIFF - TIFF Library and
+  Utilities. Cit. 2013-05-10.
+\urlprefix\biburl{http://www.libtiff.org}
+
+\end{thebibliography}

@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>SRTM &amp; Ordnance Survey Elevation Data in PHP</title>
+<link rel="stylesheet" href="elevations.css" type="text/css">
+<link rel="stylesheet" href="http://openlayers.org/api/theme/default/style.css" type="text/css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="../lib/OpenLayers.js"></script>
+<script src="elevations.js"></script>
+
+</head>
+<body>
+
+<div class="content">
+<p class="menu"><a href="/index.htm">Home</a> | <a href="/rides/index.htm">Hampshire Bike Rides</a> | <a href="/rides/nonhants.htm">Other Bike Rides</a> | <a href="/rides/gpsuploader.htm">Map Search &amp; GPX/KML Upload</a> </p>
+
+    <h1>SRTM &amp; Ordnance Survey Elevation Data in PHP</h1>
+     
+    <p>This page is about how to use PHP code to read elevation data from two freely-available data sources:</p>
+      <ul>
+        <li>90m 5x5 degree SRTM GeoTIFF data files (version 4)</li>
+        <li>50m UK Ordnance Survey Land-Form PANORAMA&#174; NTF data files</li>
+      </ul> 
+   
+    <p><a id="download" href="elevations.zip">Download the code here</a> (latest bugfix version 22-Oct-2011)</p>
+     
+    <p>Elevation data is already available from a number of online sources,
+    so why bother rolling your own code? The answer is that most (all?) online elevation resources 
+    restrict the number of data requests you can make. So to get the flexibility to do whatever you like 
+    with the data as often as you like you will need to read the raw data files yourself.</p>
+        
+    <h1>Demo</h1>
+    
+    <p>I expect the main use for the code will be to generate spot elevation data or profile charts
+    for hiking or cycling. So here's a demo:</p>
+      
+    <ul>
+       <li class="hilite">Move the mouse over the map to see the elevation for the mouse position</li>  
+       <li class="hilite">Click on any two points on the map to generate a profile image under the map</li>
+    </ul>
+         
+    <table>
+        <tr>
+            <td rowspan="2">Data type (choose either):</td>
+            <td colspan="3"><input type="radio" value="SRTM" name="dataType" checked="checked"> CGIAR-CSI SRTM</td> 
+        </tr>
+        <tr>
+            <td colspan="3"><input type="radio" value="OS" name="dataType"> Ordnance Survey</td> 
+        </tr> 
+        <tr>
+            <td>Mouseover demo</td>
+            <td class="fixed">Elevation (m)</td>
+            <td colspan="2"><strong><span id="Elev"></span></strong></td> 
+        </tr> 
+        <tr>
+            <td rowspan="3">Mouse click demo</td>         
+            <td></td>
+            <td><em>Lat / Northing</em></td> 
+            <td><em>Long / Easting</em></td>
+        </tr>
+        <tr>
+            <td>Location 1</td>
+            <td class="fixed" id="N0"></td> 
+            <td class="fixed" id="E0"></td>
+        </tr>    
+        <tr>
+            <td>Location 2</td>
+            <td id="N1"></td>
+            <td id="E1"></td> 
+        </tr>     
+    </table>
+
+    <!-- Holds the generated map -->
+    <div id="map"></div> 
+    
+    <!-- Holds the generated profile image -->        
+    <img id="chart" src="getOSchart.php" alt="chart">
+
+   
+    <h2>Elevation Data</h2> 
+    
+    <p>Which data set to use? For most cases probably the SRTM data is the best bet. 
+    SRTM data was obtained using the NASA Space Shuttle and provides a 90m data grid data for most of the world. 
+    My code expects to see Version 4 data files in the 5x5 degree GeoTIFF format. 
+    This means that the UK is covered using just 6 files (around 412MB in total). Or 5 files if you don't mind chopping
+    off a very small chunk of Cornwall!</p>
+     
+    <p>You can get the data from <a href="http://srtm.csi.cgiar.org/">CGIAR-CSI</a>. However, if you have Google Earth, 
+    then an easier and faster way to get the data is to use Dr. Mark Mulligan's 
+    <a href="http://www.ambiotek.com/topoview">KML file</a>. Just tick the 'elevation' checkbox in the 'Places' 
+    panel to see the tile grids then zoom in and download the five degree GeoTIFF files you need.</p>
+    
+    <p>UK users may prefer the OS Land-Forma PANORAMA NTF data available from the 
+    <a href="https://www.ordnancesurvey.co.uk/opendatadownload/products.html">Ordnance Survey</a>.
+    This data (around 570MB in total) provides a 50m data grid for the UK and is the same data 
+    as used for OS maps. Be warned that there are occasional gaps in the data on incomplete contour
+    lines or sheer cliffs. This can be seen in the demo above  where the graph occasionally drops 
+    to zero over certain areas. This only seems to occur in exceptionally sheer locations so is unlikely
+    to be an issue for a typical hike or bike ride.</p>
+    
+    <h2>Requirements</h2>
+
+    <p>You will need:</p> 
+    <ul>
+       <li>A web site running PHP 5</li>
+       <li>A mapping API - I use OS OpenSpace maps, but the principles are the same for other mapping APIs</li>
+       <li>Elevation data for your area of interest as described above - note that the OS data MUST remain in
+	   the default tree structure exactly as downloaded (i.e. in directories 'hp', 'ht', 'hu' etc.)
+       <li>My PHP code - this page plus all associated files in a <a href="index.htm#download">ZIP file</a> above</li>
+       <li>If you want to display graphs, then a package such as <a href="http://jpgraph.net/">jpGraph</a></li>  
+    </ul>
+    
+    <h2>Code Notes</h2>
+    
+    <p>The code can:</p> 
+    <ul>
+       <li>Return the elevation for the data point closest to the parameter coordinates</li>
+       <li>Return a bilinear interpolation of the four 
+           elevation data points which surround the parameter coordinates - this is arguably more
+           accurate and smoother for graphs but is more expensive</li>
+       <li>Return an array of elevations (closest point or interpolated) given an array of coordinates</li>
+       <li>Return an array of elevations (closest point or interpolated) from calculated intermediate locations 
+        every 90m (SRTM) or 50m (OS) distance between two or more coordinates</li>  
+       <li>Return the total distance, total ascent and total descent between two or more coordinates</li>
+    </ul>
+
+    <p>JavaScript/jQuery displays the map, obtains the mouse position and gets the underlying coordinates. 
+    For SRTM data, the units are latitude and longitude. 
+    For OS data, the units are eastings &amp; northings. 
+    These values are then passed as parameters via an asynchronous request to the appropriate PHP data reader class.</p> 
+    
+    <p>Both classes automatically work out which data file to read and then use file pointer 
+    arithmetic to jump to the data offset address. This means that - unlike ASCII file 
+    parsing or reading from a database - the code uses hardly any system resources and is very fast.</p> 
+    
+    <p>If you try the demo at silly small scales, it will be slow but will work eventually. The slowness is mostly the graph library - 
+    the elevation data itself is returned pretty much instantly for anything under a thousand or so coordinate pairs.</p>
+    
+    <p>The mouseover demo will produce lots of very small hits on your server. A less "chatty" approach might be to work out
+    the current map size and do a one-off grab of all the elevation points for the current map and thus create an on-the-fly 
+    elevation data tile in JavaScript. I suspect this would only be feasible for small area maps but that's 
+    left as an exercise for others!</p>
+    
+    <h2>Using the code</h2>  
+     
+    <p>It's pretty straightforward: </p>
+     
+    <p>SRTM code</p>
+	<pre class="brush: php">
+    require_once 'SRTMGeoTIFFReader.php';
+    $dataReader = new SRTMGeoTIFFReader("/path/to/GeoData");     
+    // where GeoData is the directory containing your SRTM data files
+
+    // get single elevation
+    $lat = 53.073997;
+    $lon = -4.095965; 
+    $elevation = $dataReader->getElevation($lat, $lon);
+
+    // get an array of elevations for each of the supplied coordinate pairs 
+    $locations = array($lat0, $lon0, ... $latN, $lonN);   
+    $elevations = $dataReader->getMultipleElevations(
+        $locations, 
+        $addIntermediateLatLons, 
+        $interpolate
+    );     
+ 
+    // - $addIntermediateLatLons is a bool which will fill in the gaps 
+    //   between two given points as per the demo   
+    // - $interpolate is a bool which if set to true gives smoother graphs
+    //   but may be noticeably slower for large numbers of coordinate pairs	
+    </pre>
+     
+	<p>Ordnance Survey code</p>        
+	<pre class="brush: php">   
+    require_once 'OSNTFReader.php';
+    $dataReader = new OSNTFReader("path/to/OSNTFdata");  
+    // where OSNTFdata is the directory containing the directories
+    // holding the .ntf data files in the default structure
+	// exactly as downloaded from OS
+
+    // get single elevation 
+    $e = 261550; // an OS easting value
+    $n = 354515; // an OS northing value
+    $elevation = $dataReader->getElevation($e, $n);
+
+    // get an array of elevations for each of the supplied coordinate pairs     
+    $locations = array($e0, $n0,  ... $eN, $nN);
+    $elevations = $dataReader->getMultipleElevations(
+        $locations, 
+        $addIntermediateLatLons, 
+        $interpolate
+    );	
+    </pre>
+     
+	<p>There are also some common useful utility methods and properties: 
+	<pre class="brush: php">
+    // get ascent and descent in meters
+    $hills = $dataReader->getAscentDescent();
+    $ascent = $hills["ascent]";
+    $descent = $hills["descent]"; 
+
+    // get the total distance between the points in kilometers
+    $distance = $dataReader->getTotalDistance();
+
+    // optionally show verbose errors for debugging purposes (default: false)
+    $dataReader->showErrors = true; 
+	  
+    // optionally change max number of allowed input locations (default: 5000)    
+    $dataReader->maxPoints = 20000;
+	</pre> 
+
+    <p>There's some other test stuff in there if you dig around - 
+     it's fairly liberally commented mainly so that I can work out how it all works again in 6 months time. 
+     You might need to allow a few nights to fully grok the data structures and pointer arithmetic :-)</p>
+    
+    <h2>Useful Links</h2>    
+     
+    <p>If you want to hack the GeoTIFF files, then the <a href="http://www.awaresystems.be/imaging/tiff.html">TIFF section</a> 
+    of the AWare Systems site is a great resource. Their free <a href="http://www.awaresystems.be/imaging/tiff/astifftagviewer.html">TIFF Tag Viewer</a> 
+      (Windows only) will also help you to dig around in the data files.</p> 
+      
+    <p>If you want to hack the OS data then the excellent OS PDF entitled
+      <a href="http://www.ordnancesurvey.co.uk/docs/user-guides/land-form-panorama-user-guide.pdf">Land-Form PANORAMA User guide and technical specification</a>
+     is a must-have resource.</p>
+           
+    <h2>License</h2>
+        
+    <p>This code is given as public domain freeware. There is no licence of any kind - use it as you like. 
+    An acknowledgement or an email would be nice but it isn't required.</p>
+      
+    <h2>Feedback</h2>
+
+    <p>Any bugs reports, suggestions or code improvements would be very welcome - 
+    please email me at bobosola@gmail.com.</p>
+	
+    <p>22-Oct-2011 - Thanks are due to Bert Hulsmans who reported a bug in the SRTM code, now fixed.</p>	
+	
+
+</div> 
+</body>
+</html>

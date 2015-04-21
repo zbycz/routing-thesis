@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<gpx version="1.1" creator="TrekBuddy 0.9.94" xmlns="http://www.topografix.com/GPX/1/1" xmlns:nmea="http://trekbuddy.net/2009/01/gpx/nmea" xmlns:gsm="http://trekbuddy.net/2009/01/gpx/gsm">
+  <trk>
+  <trkseg>
+      <trkpt lat="50.091794999" lon="14.260906666">
+        <ele>373.7</ele>
+        <time>2010-04-07T16:34:32Z</time>
+        <fix>3d</fix>
+        <sat>11</sat>
+        <extensions>
+          <nmea:course>74.0</nmea:course>
+          <nmea:speed>1.6</nmea:speed>
+          <gsm:cellid>20412</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.091794999" lon="14.260946666">
+        <ele>373.5</ele>
+        <time>2010-04-07T16:34:35Z</time>
+        <fix>3d</fix>
+        <sat>11</sat>
+        <extensions>
+          <nmea:course>101.1</nmea:course>
+          <nmea:speed>1.1</nmea:speed>
+          <gsm:cellid>20412</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.091766666" lon="14.260991666">
+        <ele>373.5</ele>
+        <time>2010-04-07T16:34:41Z</time>
+        <fix>3d</fix>
+        <sat>11</sat>
+        <extensions>
+          <nmea:course>131.6</nmea:course>
+          <nmea:speed>1.2</nmea:speed>
+          <gsm:cellid>20412</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.091736666" lon="14.260999999">
+        <ele>373.6</ele>
+        <time>2010-04-07T16:34:43Z</time>
+        <fix>3d</fix>
+        <sat>11</sat>
+        <extensions>
+          <nmea:course>156.9</nmea:course>
+          <nmea:speed>2.1</nmea:speed>
+          <gsm:cellid>20412</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.091684999" lon="14.261003333">
+        <ele>373.8</ele>
+        <time>2010-04-07T16:34:45Z</time>
+        <fix>3d</fix>
+        <sat>11</sat>
+        <extensions>
+          <nmea:course>177.2</nmea:course>
+          <nmea:speed>3.2</nmea:speed>
+          <gsm:cellid>20412</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.088428333" lon="14.261034999">
+        <ele>375.2</ele>
+        <time>2010-04-07T16:35:46Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>179.8</nmea:course>
+          <nmea:speed>6.7</nmea:speed>
+          <gsm:cellid>26232</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.087460000" lon="14.261050000">
+        <ele>375.2</ele>
+        <time>2010-04-07T16:36:05Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>160.7</nmea:course>
+          <nmea:speed>3.6</nmea:speed>
+          <gsm:cellid>26232</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.087431666" lon="14.261071666">
+        <ele>375.2</ele>
+        <time>2010-04-07T16:36:06Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>144.8</nmea:course>
+          <nmea:speed>3.4</nmea:speed>
+          <gsm:cellid>26232</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.087403333" lon="14.261133333">
+        <ele>375.2</ele>
+        <time>2010-04-07T16:36:08Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>127.7</nmea:course>
+          <nmea:speed>2.4</nmea:speed>
+          <gsm:cellid>26232</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.087396666" lon="14.261203333">
+        <ele>375.2</ele>
+        <time>2010-04-07T16:36:10Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>112.1</nmea:course>
+          <nmea:speed>2.3</nmea:speed>
+          <gsm:cellid>26232</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.087388333" lon="14.261314999">
+        <ele>375.5</ele>
+        <time>2010-04-07T16:36:14Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>96.8</nmea:course>
+          <nmea:speed>2.1</nmea:speed>
+          <gsm:cellid>26232</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.087375000" lon="14.263366666">
+        <ele>376.2</ele>
+        <time>2010-04-07T16:36:58Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>117.0</nmea:course>
+          <nmea:speed>3.4</nmea:speed>
+          <gsm:cellid>26232</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.087344999" lon="14.263531666">
+        <ele>376.2</ele>
+        <time>2010-04-07T16:37:01Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>98.4</nmea:course>
+          <nmea:speed>4.3</nmea:speed>
+          <gsm:cellid>26232</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.087306666" lon="14.264336666">
+        <ele>377.0</ele>
+        <time>2010-04-07T16:37:13Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>113.9</nmea:course>
+          <nmea:speed>5.0</nmea:speed>
+          <gsm:cellid>26232</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.086691666" lon="14.265693333">
+        <ele>378.0</ele>
+        <time>2010-04-07T16:37:38Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>126.0</nmea:course>
+          <nmea:speed>5.0</nmea:speed>
+          <gsm:cellid>36061</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.086588333" lon="14.265928333">
+        <ele>377.6</ele>
+        <time>2010-04-07T16:37:42Z</time>
+        <fix>3d</fix>
+        <sat>9</sat>
+        <extensions>
+          <nmea:course>115.7</nmea:course>
+          <nmea:speed>5.3</nmea:speed>
+          <gsm:cellid>36061</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.086554999" lon="14.266069999">
+        <ele>377.5</ele>
+        <time>2010-04-07T16:37:44Z</time>
+        <fix>3d</fix>
+        <sat>9</sat>
+        <extensions>
+          <nmea:course>104.8</nmea:course>
+          <nmea:speed>5.4</nmea:speed>
+          <gsm:cellid>36061</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.086424999" lon="14.266818333">
+        <ele>376.0</ele>
+        <time>2010-04-07T16:37:56Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>121.9</nmea:course>
+          <nmea:speed>4.5</nmea:speed>
+          <gsm:cellid>36061</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.085981666" lon="14.267686666">
+        <ele>374.7</ele>
+        <time>2010-04-07T16:38:12Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>133.7</nmea:course>
+          <nmea:speed>5.0</nmea:speed>
+          <gsm:cellid>36061</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+      <trkpt lat="50.085901666" lon="14.267858333">
+        <ele>374.3</ele>
+        <time>2010-04-07T16:38:15Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <extensions>
+          <nmea:course>109.1</nmea:course>
+          <nmea:speed>5.1</nmea:speed>
+          <gsm:cellid>36061</gsm:cellid>
+          <gsm:lac>5400</gsm:lac>
+        </extensions>
+      </trkpt>
+
+    </trkseg>
+  </trk>
+</gpx>

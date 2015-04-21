@@ -1,0 +1,29 @@
+body {
+	padding-right: 600px;
+}
+body,table{font-family:Verdana;font-size:80%;}
+table{border-collapse:collapse; text-align:right}
+small,.small {color:#ccc;font-size:80%}
+.vtop {vertical-align: top;}
+
+
+table .mark {background: #fee}
+
+
+.srtm {
+	position:fixed;right:0;bottom:0;
+	width:600px;height:200px;
+	vertical-align:bottom;
+	display:table
+}
+.srtm.back {background:gray;}
+.srtm.over > div >div {background: royalblue;opacity: 0.2}
+
+.srtm > div {display:table-cell;}
+.srtm > div >div {background: #fff; opacity: 0.9}
+.srtm .mark {background: greenyellow}
+
+.skip td {background: yellow;}
+
+
+i {color: red; background: #FFC0CB;font-style: normal;}

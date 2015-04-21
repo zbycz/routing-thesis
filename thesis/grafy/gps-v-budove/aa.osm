@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' upload='true' generator='JOSM'>
+  <bounds minlat='49.86613' minlon='14.5168126' maxlat='49.8663963' maxlon='14.5172524' origin='CGImap 0.1.0' />
+  <node id='-30' action='modify' visible='true' lat='49.866331195619864' lon='14.516989396677738'>
+    <tag k='a' v='a' />
+  </node>
+  <node id='448002204' timestamp='2009-07-25T21:54:53Z' uid='3516' user='BiIbo' visible='true' version='1' changeset='1938743' lat='49.866315' lon='14.5169575'>
+    <tag k='amenity' v='restaurant' />
+    <tag k='name' v='Na Zastávce' />
+  </node>
+  <node id='930123144' timestamp='2010-09-29T13:19:44Z' uid='17615' user='Petr Dlouhý' visible='true' version='1' changeset='5911631' lat='49.8663151' lon='14.5169025'>
+    <tag k='addr:conscriptionnumber' v='86' />
+    <tag k='addr:country' v='CZ' />
+    <tag k='addr:housenumber' v='86' />
+    <tag k='is_in' v='Kamenný Přívoz, Středočeský kraj, CZ' />
+    <tag k='source:addr' v='mvcr:adresa' />
+    <tag k='source:loc' v='cuzk:km' />
+  </node>
+  <node id='1994998404' timestamp='2012-11-03T09:14:44Z' uid='733101' user='Jindřich Houska' visible='true' version='1' changeset='13731813' lat='49.8662237' lon='14.5169183' />
+  <node id='1994998414' timestamp='2012-11-03T09:14:45Z' uid='733101' user='Jindřich Houska' visible='true' version='1' changeset='13731813' lat='49.8662731' lon='14.51707' />
+  <node id='1994998424' timestamp='2012-11-03T09:14:45Z' uid='733101' user='Jindřich Houska' visible='true' version='1' changeset='13731813' lat='49.8663209' lon='14.516842' />
+  <node id='1994998433' timestamp='2012-11-03T09:14:45Z' uid='733101' user='Jindřich Houska' visible='true' version='1' changeset='13731813' lat='49.8663703' lon='14.5169937' />
+  <way id='188863814' timestamp='2012-11-03T09:15:26Z' uid='733101' user='Jindřich Houska' visible='true' version='1' changeset='13731813'>
+    <nd ref='1994998414' />
+    <nd ref='1994998404' />
+    <nd ref='1994998424' />
+    <nd ref='1994998433' />
+    <nd ref='1994998414' />
+    <tag k='building' v='yes' />
+    <tag k='source' v='cuzk:km' />
+  </way>
+</osm>

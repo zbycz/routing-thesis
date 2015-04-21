@@ -1,0 +1,52 @@
+\select@language {czech}
+\select@language {czech}
+\select@language {czech}
+\contentsline {subsection}{Odkaz na tuto pr{\' a}ci}{viii}{section*.1}
+\contentsline {chapter}{{\' U}vod}{1}{chapter*.5}
+\contentsline {chapter}{\chapternumberline {1}Pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} routovac\IeC {\'\i } syst\IeC {\'e}my}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Mapov\IeC {\'a} data}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Minimaliza\IeC {\v c}n\IeC {\'\i } podm\IeC {\'\i }nka -- j\IeC {\'a}dro routov\IeC {\'a}n\IeC {\'\i }}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}Porovn\IeC {\'a}n\IeC {\'\i } routovac\IeC {\'\i }ch syst\IeC {\'e}m\IeC {\r u}}{5}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}OpenRouteService}{5}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}YOURS / Gosmore}{6}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}CycleStreets}{6}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Cloudmade / MapQuest}{6}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {1.3.5}Routino}{7}{subsection.1.3.5}
+\contentsline {subsection}{\numberline {1.3.6}BBBike}{7}{subsection.1.3.6}
+\contentsline {subsection}{\numberline {1.3.7}OSRM}{7}{subsection.1.3.7}
+\contentsline {subsection}{\numberline {1.3.8}BRouter}{8}{subsection.1.3.8}
+\contentsline {subsection}{\numberline {1.3.9}Shrnut\IeC {\'\i }}{8}{subsection.1.3.9}
+\contentsline {chapter}{\chapternumberline {2}Routov\IeC {\'a}n\IeC {\'\i } s~optimalizac\IeC {\'\i } p\IeC {\v r}ev\IeC {\'y}\IeC {\v s}en\IeC {\'\i }}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Minimalizace \IeC {\v c}asu}{9}{section.2.1}
+\contentsline {section}{\numberline {2.2}N\IeC {\'a}stroj na rychlostn\IeC {\'\i } anal\IeC {\'y}zu z\IeC {\'a}znam\IeC {\r u} tras}{10}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Z\IeC {\'a}znam trasy}{10}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Digit\IeC {\'a}ln\IeC {\'\i } v\IeC {\'y}\IeC {\v s}kov\IeC {\'y} model Zem\IeC {\v e}}{11}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Seskupov\IeC {\'a}n\IeC {\'\i } interval\IeC {\r u}}{12}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Interpolace v\IeC {\'y}\IeC {\v s}kov\IeC {\'y}ch dat}{12}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Rozpozn\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } pauzy p\IeC {\v r}i z\IeC {\'a}znamu trasy}{13}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Seskupov\IeC {\'a}n\IeC {\'\i } kopc\IeC {\r u}}{13}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.7}Koment\IeC {\'a}\IeC {\v r} k~analyz\IeC {\'a}toru}{13}{subsection.2.2.7}
+\contentsline {subsection}{\numberline {2.2.8}Koment\IeC {\'a}\IeC {\v r} k~v\IeC {\'y}\IeC {\v s}kov\IeC {\'e}mu modelu}{15}{subsection.2.2.8}
+\contentsline {section}{\numberline {2.3}Model cyklisty}{17}{section.2.3}
+\contentsline {chapter}{\chapternumberline {3}Implementace}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Infrastruktura routeru Routino}{19}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}OpenStreetMap data}{20}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Datov\IeC {\'e} struktury a na\IeC {\v c}\IeC {\'\i }t\IeC {\'a}n\IeC {\'\i }}{21}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Super segments}{21}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Vyhled\IeC {\'a}vac\IeC {\'\i } algoritmus}{21}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Nasazen\IeC {\'\i } Routino jako webov\IeC {\'e} slu\IeC {\v z}by}{23}{subsection.3.1.5}
+\contentsline {section}{\numberline {3.2}\IeC {\'U}prava algoritm\IeC {\r u} a datov\IeC {\'y}ch struktur}{23}{section.3.2}
+\contentsline {section}{\numberline {3.3}Heuristika pro hled\IeC {\'a}n\IeC {\'\i } trasy}{24}{section.3.3}
+\contentsline {section}{\numberline {3.4}SRTM reader}{25}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Form\IeC {\'a}t dat a konverze}{25}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Biline\IeC {\'a}rn\IeC {\'\i } interpolace dat}{26}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}V\IeC {\'y}stup SRTM readeru}{27}{subsection.3.4.3}
+\contentsline {section}{\numberline {3.5}Vyu\IeC {\v z}it\IeC {\'\i } SRTM readeru v~syst\IeC {\'e}mu Routino}{27}{section.3.5}
+\contentsline {chapter}{\chapternumberline {4}Zhodnocen\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u}}{29}{chapter.4}
+\contentsline {section}{\numberline {4.1}Trasa p\IeC {\v r}es Haunspaulku}{29}{section.4.1}
+\contentsline {section}{\numberline {4.2}Trasa z Nusl\IeC {\'\i } do Podol\IeC {\'\i }}{31}{section.4.2}
+\contentsline {chapter}{Z{\' a}v{\v e}r}{33}{chapter*.6}
+\contentsline {chapter}{Literatura}{35}{section*.8}
+\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{37}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{39}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}N\IeC {\'a}vod k~instalaci}{41}{appendix.C}
