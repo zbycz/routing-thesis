@@ -1,7 +1,11 @@
-# Bachelor thesis - elevation minimization for bicycle routing
+# Routino
+
 
 - For routino modifictaions see: https://github.com/zbycz/routing-thesis/issues/1
 - There is not AFAIK any official git reporsitory - **get the code from author: www.routino.org**
+
+
+## Bachelor thesis - elevation minimization for bicycle routing
 
 - [Thesis - raw PDF](http://cdn.rawgit.com/zbycz/routing-thesis/master/BP_Zbytovsky_Pavel_2013.pdf)
 - [Online router](http://osm.zby.cz/routino/web/www/routino/router.html?transport=bicycle;lon1=14.45988368987878;lat1=50.08622788939752;lon2=14.45239;lat2=50.09075;length=100;lat=50.08871;lon=14.45641;zoom=15) (may not work)
@@ -10,7 +14,7 @@
 
 
 
-## Návod k instalaci
+### Návod k instalaci 
 
 Na CD je celý software zkompilován pro architekturu amd64, ale je velice snadné zkompilovat jej pro libovolný systém založený na Linuxu. Kompilátor byl použitý gcc version 4.7.2 na systému Debian Wheezy. 
 
