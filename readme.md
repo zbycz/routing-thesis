@@ -1,7 +1,8 @@
 # Routino
 
 
-- For routino modifictaions see: https://github.com/zbycz/routing-thesis/issues/1
+- For newer modified routino repo see: [#1](https://github.com/zbycz/routing-thesis/issues/1) - probably contribute there
+- Error with latest OSM dump see: [#3](https://github.com/zbycz/routing-thesis/issues/3)
 - There is not AFAIK any official git reporsitory - **get the code from author: www.routino.org**
 
 
@@ -39,7 +40,7 @@ Pro přípravu vlastní routovací databáze možný následující postup:
 routino/web/data$ ../bin/planetsplitter data.osm 2>/dev/null
 
 
-## Adresářová struktura CD
+### Adresářová struktura CD
 
 ```
 readme.txt   		...   stručný popis obsahu CD
